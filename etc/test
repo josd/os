@@ -9,8 +9,8 @@ OK=0
 DIFF=0
 
 echo -e "${YELLOW}------------------------------------------${NORMAL}"
-echo -e "${YELLOW}running eyeproof examples and test cases${NORMAL}"
-echo -e "${YELLOW}using eyeproof $(../eyeproof 2>&1 | awk '{ print $2 }') and scryer $(scryer-prolog --version 2>&1 | sed 's/-.*//')${NORMAL}"
+echo -e "${YELLOW}running eyeprover examples and test cases${NORMAL}"
+echo -e "${YELLOW}using eyeprover $(../eyeprover 2>&1 | awk '{ print $2 }') and scryer $(scryer-prolog --version 2>&1 | sed 's/-.*//')${NORMAL}"
 echo -e "${YELLOW}------------------------------------------${NORMAL}"
 echo ""
 
@@ -23,10 +23,10 @@ pad () {
 begin=$(($(date +%s)))
 for file in *.pl
 do
-    [[ "${file}" != eyeproof.pl ]] || continue
+    [[ "${file}" != eyeprover.pl ]] || continue
     echo -en "$(pad "${file}" -30)"
     start=$(($(date +%s%N)/1000000))
-    ../eyeproof "${file}" > output/${file}
+    ../eyeprover "${file}" > output/${file}
     end=$(($(date +%s%N)/1000000))
     echo -en "${YELLOW}$(pad "`expr $end - $start` msec" 12)${NORMAL} "
     if [[ $(git diff output/${file} | wc -l) -eq 0 ]]; then

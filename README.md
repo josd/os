@@ -1,4 +1,4 @@
-# eyeproof
+# eyeprover
 
 - proof engine using webized prolog which basically means that atoms can be IRIs
 - besides top-down reasoning with `conclusion :- premise` rules, it also does bottom-up reasoning with `conclusion :+ premise` rules
@@ -23,8 +23,8 @@
 - install [Scryer Prolog](https://github.com/mthom/scryer-prolog#installing-scryer-prolog)
   and run the tests
     ```
-    git clone https://github.com/eyereasoner/eyeproof
-    cd eyeproof/etc
+    git clone https://github.com/eyereasoner/eyeprover
+    cd eyeprover/etc
     ./test
     ```
 

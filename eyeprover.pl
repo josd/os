@@ -1,8 +1,8 @@
-% ----------------------
-% eyeproof -- Jos De Roo
-% ----------------------
+% -----------------------
+% eyeprover -- Jos De Roo
+% -----------------------
 %
-% See https://github.com/eyereasoner/eyeproof
+% See https://github.com/eyereasoner/eyeprover
 %
 
 :- use_module(library(lists)).
@@ -17,7 +17,7 @@
 :- dynamic(count/2).
 :- dynamic(limit/1).
 
-version_info('eyeproof v0.0.1 (2025-03-04)').
+version_info('eyeprover v0.0.2 (2025-03-04)').
 
 % main goal
 main :-
@@ -66,7 +66,7 @@ main :-
     ),
     halt(Exit).
 
-% eyeproof abstract machine
+% eyeprover abstract machine
 %
 % 1/ select rule Conc :+ Prem
 % 2/ prove Prem and if it fails backtrack to 1/

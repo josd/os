@@ -2,9 +2,12 @@
 # check the command line
 if [ $# -lt 2 ] ; then
   echo "Missing release options and release message";
-  echo "usage: $(basename $0) [-Mmp] \"release message\""
+  echo "Usage: $(basename $0) [-Mmp] \"release message\""
   exit 1
 fi
+
+# change working directory
+pushd ~/github.com/eyereasoner/eyeprover > /dev/null
 
 # the following is adapted from https://gist.github.com/codezninja/c227d9c65b09d2be2d99abbfcfa8774a
 while getopts "Mmp" Option
@@ -20,7 +23,7 @@ done
 # if a flag is missing, show usage message
 if [ $OPTIND -eq 1 ]; then
   echo "No release options were passed: -M for major, -m for minor and -p for patch";
-  echo "usage: $(basename $0) [-Mmp] \"release message\""
+  echo "Usage: $(basename $0) [-Mmp] \"release message\""
   exit 1
 fi
 
@@ -52,9 +55,9 @@ echo "${a[0]}.${a[1]}.${a[2]}" > VERSION
 export RELEASE="v$(cat VERSION)"
 export DATE="$(date -Idate)"
 
-# update version in eyeproof.pl
-cat eyeproof.pl | sed -e "s/'eyeproof.*'/'eyeproof $RELEASE \($DATE\)'/" > eyeproof.pl.tmp
-mv eyeproof.pl.tmp eyeproof.pl
+# update version in eyeprover.pl
+cat eyeprover.pl | sed -e "s/'eyeprover.*'/'eyeprover $RELEASE \($DATE\)'/" > eyeprover.pl.tmp
+mv eyeprover.pl.tmp eyeprover.pl
 
 # run the etc tests
 pushd etc > /dev/null
@@ -67,3 +70,5 @@ git commit -a -m "$1"
 git push
 git tag -a -m "$1" $RELEASE
 git push origin $RELEASE
+
+popd > /dev/null
