@@ -8,7 +8,7 @@
 - queries are posed as `true :+ premise` and answered as `bus((true :+ premise_inst))`
 - inference fuses are defined as `false :+ premise` and blown as `bus(false :+ premise_inst))` with return code 2
 
-## rationale for bottom-up reasoning with `conclusion :+ premise` rules
+## rationale for bottom-up reasoning
 
 - conclusion can be a conjunction
 - conclusion can be `false` to blow an inference fuse
