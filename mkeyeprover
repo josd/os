@@ -61,7 +61,7 @@ mv eyeprover.pl.tmp eyeprover.pl
 
 # run the etc tests
 pushd etc > /dev/null
-./test-swipl
+./test
 git diff
 popd > /dev/null
 
