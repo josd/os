@@ -17,7 +17,7 @@
 :- dynamic(count/2).
 :- dynamic(limit/1).
 
-version_info('eyeprover v0.0.2 (2025-03-04)').
+version_info('eyeprover v0.0.3 (2025-03-04)').
 
 % main goal
 main :-
@@ -85,7 +85,10 @@ eam :-
         (   Conc = true     % 3/
         ->  astep(bus((true :+ Prem)))
         ;   (   Conc = false
-            ->  \+ (bus(Step), \+ portray_clause(bus(Step))),
+            ->  write(':- op(1200, xfx, :+).'),
+                nl,
+                nl,
+                \+ (bus(Step), \+ portray_clause(bus(Step))),
                 portray_clause(bus((false :+ Prem))),
                 throw(halt(2))
             ;   (   Conc \= (_ :+ _)
