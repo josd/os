@@ -27,7 +27,7 @@
     cd eyeprover/etc
     ./test-scryer
     ./test-swipl
-    ./test-tpl
+    ./test-trealla
     ```
 
 ## background
