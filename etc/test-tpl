@@ -10,7 +10,7 @@ DIFF=0
 
 echo -e "${YELLOW}------------------------------------------${NORMAL}"
 echo -e "${YELLOW}running eyeprover examples and test cases${NORMAL}"
-echo -e "${YELLOW}using eyeprover $(../eyeprover-tpl 2>&1 | awk '{ print $2 }') and tpl $(tpl --version 2>&1 | awk '{ print $6 }' | sed 's/-.*//')${NORMAL}"
+echo -e "${YELLOW}using eyeprover $(../eyeprover 2>&1 | awk '{ print $2 }') and tpl $(tpl --version 2>&1 | awk '{ print $6 }' | sed 's/-.*//')${NORMAL}"
 echo -e "${YELLOW}------------------------------------------${NORMAL}"
 echo ""
 
@@ -23,7 +23,6 @@ pad () {
 begin=$(($(date +%s)))
 for file in *.pl
 do
-    [[ "${file}" != eyeprover.pl ]] || continue
     echo -en "$(pad "${file}" -30)"
     start=$(($(date +%s%N)/1000000))
     tpl -g main ../eyeprover.pl "${file}" > output-tpl/${file}

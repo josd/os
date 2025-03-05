@@ -1,0 +1,37 @@
+:- op(1200, xfx, :+).
+
+bus((true:+'urn:example:goldbach'(4, [2, 2]))).
+bus((true:+'urn:example:goldbach'(8, [3, 5]))).
+bus((true:+'urn:example:goldbach'(16, [3, 13]))).
+bus((true:+'urn:example:goldbach'(32, [3, 29]))).
+bus((true:+'urn:example:goldbach'(64, [3, 61]))).
+bus((true:+'urn:example:goldbach'(128, [19, 109]))).
+bus((true:+'urn:example:goldbach'(256, [5, 251]))).
+bus((true:+'urn:example:goldbach'(512, [3, 509]))).
+bus((true:+'urn:example:goldbach'(1024, [3, 1021]))).
+bus((true:+'urn:example:goldbach'(2048, [19, 2029]))).
+bus((true:+'urn:example:goldbach'(4096, [3, 4093]))).
+bus((true:+'urn:example:goldbach'(8192, [13, 8179]))).
+bus((true:+'urn:example:goldbach'(16384, [3, 16381]))).
+bus((true:+'urn:example:goldbach'(32768, [19, 32749]))).
+bus((true:+'urn:example:goldbach'(65536, [17, 65519]))).
+bus((true:+'urn:example:goldbach'(131072, [13, 131059]))).
+bus((true:+'urn:example:goldbach'(262144, [5, 262139]))).
+bus((true:+'urn:example:goldbach'(524288, [19, 524269]))).
+bus((true:+'urn:example:goldbach'(1048576, [3, 1048573]))).
+bus((true:+'urn:example:goldbach'(2097152, [19, 2097133]))).
+bus((true:+'urn:example:goldbach'(4194304, [3, 4194301]))).
+bus((true:+'urn:example:goldbach'(8388608, [37, 8388571]))).
+bus((true:+'urn:example:goldbach'(16777216, [3, 16777213]))).
+bus((true:+'urn:example:goldbach'(33554432, [61, 33554371]))).
+bus((true:+'urn:example:goldbach'(67108864, [5, 67108859]))).
+bus((true:+'urn:example:goldbach'(134217728, [79, 134217649]))).
+bus((true:+'urn:example:goldbach'(268435456, [89, 268435367]))).
+bus((true:+'urn:example:goldbach'(536870912, [3, 536870909]))).
+bus((true:+'urn:example:goldbach'(1073741824, [41, 1073741783]))).
+bus((true:+'urn:example:goldbach'(2147483648, [19, 2147483629]))).
+bus((true:+'urn:example:goldbach'(4294967296, [5, 4294967291]))).
+bus((true:+'urn:example:goldbach'(8589934592, [79, 8589934513]))).
+bus((true:+'urn:example:goldbach'(17179869184, [41, 17179869143]))).
+bus((true:+'urn:example:goldbach'(34359738368, [31, 34359738337]))).
+bus((true:+'urn:example:goldbach'(68719476736, [5, 68719476731]))).

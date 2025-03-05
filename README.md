@@ -27,6 +27,11 @@
     cd eyeprover/etc
     ./test
     ```
+- it should also work with [Trealla Prolog](https://github.com/trealla-prolog/trealla#building) and SWI Prolog](http://www.swi-prolog.org/Download.html)
+    ```
+    ./test-tpl
+    ./test-swipl
+    ```
 
 ## background
 

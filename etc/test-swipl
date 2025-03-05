@@ -10,7 +10,7 @@ DIFF=0
 
 echo -e "${YELLOW}------------------------------------------${NORMAL}"
 echo -e "${YELLOW}running eyeprover examples and test cases${NORMAL}"
-echo -e "${YELLOW}using eyeprover $(../eyeprover 2>&1 | awk '{ print $2 }') and scryer $(scryer-prolog --version 2>&1 | sed 's/-.*//')${NORMAL}"
+echo -e "${YELLOW}using eyeprover $(../eyeprover 2>&1 | awk '{ print $2 }') and swipl v$(swipl --version 2>&1 | awk '{ print $3 }')${NORMAL}"
 echo -e "${YELLOW}------------------------------------------${NORMAL}"
 echo ""
 
@@ -25,10 +25,10 @@ for file in *.pl
 do
     echo -en "$(pad "${file}" -30)"
     start=$(($(date +%s%N)/1000000))
-    ../eyeprover "${file}" > output/${file}
+    swipl -g main ../eyeprover.pl "${file}" > output-swipl/${file}
     end=$(($(date +%s%N)/1000000))
     echo -en "${YELLOW}$(pad "`expr $end - $start` msec" 12)${NORMAL} "
-    if [[ $(git diff output/${file} | wc -l) -eq 0 ]]; then
+    if [[ $(git diff output-swipl/${file} | wc -l) -eq 0 ]]; then
         echo -e "${GREEN}OK${NORMAL}"
         ((OK++))
     else
