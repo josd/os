@@ -29,10 +29,14 @@
     ```
     or
     ```
+    git clone https://github.com/eyereasoner/eyeprover
+    cd eyeprover/etc
     ./test-swipl
     ```
     or
     ```
+    git clone https://github.com/eyereasoner/eyeprover
+    cd eyeprover/etc
     ./test-trealla
     ```
 
