@@ -10,7 +10,7 @@ DIFF=0
 
 echo -e "${YELLOW}------------------------------------------${NORMAL}"
 echo -e "${YELLOW}running eyeprover examples and test cases${NORMAL}"
-echo -e "${YELLOW}using eyeprover $(../eyeprover 2>&1 | awk '{ print $2 }') and swipl v$(swipl --version 2>&1 | awk '{ print $3 }')${NORMAL}"
+echo -e "${YELLOW}using eyeprover $(cat ../VERSION) and swipl v$(swipl --version 2>&1 | awk '{ print $3 }')${NORMAL}"
 echo -e "${YELLOW}------------------------------------------${NORMAL}"
 echo ""
 

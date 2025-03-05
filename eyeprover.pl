@@ -17,7 +17,7 @@
 :- dynamic(count/2).
 :- dynamic(limit/1).
 
-version_info('eyeprover v0.0.4 (2025-03-05)').
+version_info('eyeprover v0.0.5 (2025-03-05)').
 
 % main goal
 main :-
