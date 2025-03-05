@@ -20,13 +20,19 @@
 
 ## installation and test
 
-- install [scryer](https://github.com/mthom/scryer-prolog#installing-scryer-prolog), [swipl](http://www.swi-prolog.org/Download.html) or
+- install [scryer](https://github.com/mthom/scryer-prolog#installing-scryer-prolog) or [swipl](http://www.swi-prolog.org/Download.html) or
   [trealla](https://github.com/trealla-prolog/trealla#building) and run the tests
     ```
     git clone https://github.com/eyereasoner/eyeprover
     cd eyeprover/etc
     ./test-scryer
+    ```
+    or
+    ```
     ./test-swipl
+    ```
+    or
+    ```
     ./test-trealla
     ```
 
