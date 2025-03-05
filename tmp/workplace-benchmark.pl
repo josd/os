@@ -7,8 +7,7 @@
 
 % Facts about what employees are doing
 'urn:example:prepare'(X, Y) :-
-    Z is Y//3,
-    between(X, Z, N),
+    between(X, Y, N),
     number_codes(N, J),
     atom_codes(I, J),
     atom_concat('urn:example:alice', I, A),
@@ -40,8 +39,9 @@
 
 % prepare employee data
 true :+
-    'urn:example:prepare'(1, 30000).
+    'urn:example:prepare'(1, 10000).
 
 % Query to test if everyone complies with deontic logic
 true :+
     'urn:example:complies'(_, _).
+    
