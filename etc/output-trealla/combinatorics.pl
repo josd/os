@@ -152,3 +152,9 @@ answer('urn:example:permutation'([1,2,3,4,5],[5,4,2,1,3])).
 answer('urn:example:permutation'([1,2,3,4,5],[5,4,2,3,1])).
 answer('urn:example:permutation'([1,2,3,4,5],[5,4,3,1,2])).
 answer('urn:example:permutation'([1,2,3,4,5],[5,4,3,2,1])).
+answer('urn:example:permutation'("rvo","rvo")).
+answer('urn:example:permutation'("rvo","rov")).
+answer('urn:example:permutation'("rvo","vro")).
+answer('urn:example:permutation'("rvo","vor")).
+answer('urn:example:permutation'("rvo","orv")).
+answer('urn:example:permutation'("rvo","ovr")).

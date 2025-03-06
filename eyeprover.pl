@@ -19,14 +19,15 @@
 :- dynamic(limit/1).
 :- dynamic(step/2).
 
-version_info('eyeprover v0.0.6 (2025-03-06)').
+:- set_prolog_flag(double_quotes, chars).
+
+version_info('eyeprover v0.0.7 (2025-03-06)').
 
 % main goal
 main :-
     catch(use_module(library(iso_ext)), _, true),
     catch(use_module(library(format)), _, true),
     catch(use_module(library(between)), _, true),
-    set_prolog_flag(double_quotes, chars),
     assertz(closure(0)),
     assertz(limit(-1)),
     assertz(count(fm, 0)),

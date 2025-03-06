@@ -1,0 +1,6 @@
+#!/bin/bash
+./test-scryer
+echo ""
+./test-swipl
+echo ""
+./test-trealla
