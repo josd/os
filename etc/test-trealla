@@ -10,7 +10,7 @@ DIFF=0
 
 echo -e "${YELLOW}------------------------------------------${NORMAL}"
 echo -e "${YELLOW}running eyeprover examples and test cases${NORMAL}"
-echo -e "${YELLOW}using eyeprover $(cat ../VERSION) and tpl $(tpl --version 2>&1 | awk '{ print $6 }' | sed 's/-.*//')${NORMAL}"
+echo -e "${YELLOW}using eyeprover $(cat ../VERSION) and trealla $(tpl --version 2>&1 | awk '{ print $6 }' | sed 's/-.*//')${NORMAL}"
 echo -e "${YELLOW}------------------------------------------${NORMAL}"
 echo ""
 

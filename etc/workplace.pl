@@ -44,4 +44,3 @@ true :+
 % Query to test if everyone complies with deontic logic
 true :+
     'urn:example:complies'(_, _).
-    
