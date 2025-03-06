@@ -1,5 +1,5 @@
 :- op(1200, xfx, :+).
 
-bus((true:+'urn:example:isReachable'(a,f))).
-bus((true:+ \+'urn:example:isReachable'(b,e))).
-bus((true:+'urn:example:isReachable'(c,g))).
+answer('urn:example:isReachable'(a,f)).
+answer(\+'urn:example:isReachable'(b,e)).
+answer('urn:example:isReachable'(c,g)).

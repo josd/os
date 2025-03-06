@@ -11,13 +11,15 @@
 :- op(1200, xfx, :+).
 
 :- dynamic((:+)/2).
+:- dynamic(answer/1).
 :- dynamic(brake/0).
-:- dynamic(bus/1).
 :- dynamic(closure/1).
 :- dynamic(count/2).
+:- dynamic(fuse/1).
 :- dynamic(limit/1).
+:- dynamic(step/2).
 
-version_info('eyeprover v0.0.5 (2025-03-05)').
+version_info('eyeprover v0.0.6 (2025-03-06)').
 
 % main goal
 main :-
@@ -70,26 +72,30 @@ main :-
 %
 % 1/ select rule Conc :+ Prem
 % 2/ prove Prem and if it fails backtrack to 1/
-% 3/ if Conc = true assert bus((true :+ Prem))
+% 3/ if Conc = true assert answer(Prem)
 %    else if Conc = false stop with return code 2
 %    else if ~Conc assert Conc and retract brake
 % 4/ backtrack to 2/ and if it fails go to 5/
 % 5/ if brake
 %       if not stable start again at 1/
-%       else output bus/1 and stop
+%       else output step(Prem, Conc) and stop
 %    else assert brake and start again at 1/
 %
 eam :-
     (   (Conc :+ Prem),     % 1/
         Prem,               % 2/
         (   Conc = true     % 3/
-        ->  astep(bus((true :+ Prem)))
+        ->  astep(answer(Prem))
         ;   (   Conc = false
             ->  write(':- op(1200, xfx, :+).'),
                 nl,
                 nl,
-                \+ (bus(Step), \+ portray_clause(bus(Step))),
-                portray_clause(bus((false :+ Prem))),
+                portray_clause(fuse(Prem)),
+                (   step(_, _)
+                ->  nl,
+                    \+ (step(P, C), \+ portray_clause(step(P, C)))
+                ;   true
+                ),
                 throw(halt(2))
             ;   (   Conc \= (_ :+ _)
                 ->  skolemize(Conc, 0, _)
@@ -97,7 +103,7 @@ eam :-
                 ),
                 \+ Conc,
                 astep(Conc),
-                astep(bus((Conc :+ Prem))),
+                astep(step(Prem, Conc)),
                 retract(brake)
             )
         ),
@@ -111,8 +117,16 @@ eam :-
                 eam
             ;   write(':- op(1200, xfx, :+).'),
                 nl,
-                nl,
-                \+ (bus(Step), \+ portray_clause(bus(Step)))
+                (   answer(_)
+                ->  nl,
+                    \+ (answer(P), \+ portray_clause(answer(P)))
+                ;   true
+                ),
+                (   step(_, _)
+                ->  nl,
+                    \+ (step(P, C), \+ portray_clause(step(P, C)))
+                ;   true
+                )
             )
         ;   assertz(brake),
             eam
