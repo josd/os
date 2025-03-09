@@ -9,8 +9,8 @@ OK=0
 DIFF=0
 
 echo -e "${YELLOW}------------------------------------------${NORMAL}"
-echo -e "${YELLOW}running arvol examples and test cases${NORMAL}"
-echo -e "${YELLOW}using arvol $(cat ../VERSION) and trealla $(tpl --version 2>&1 | awk '{ print $6 }' | sed 's/-.*//')${NORMAL}"
+echo -e "${YELLOW}running the arvol examples and test cases${NORMAL}"
+echo -e "${YELLOW}using arvol v$(cat ../VERSION) and trealla $(tpl --version 2>&1 | awk '{ print $6 }' | sed 's/-.*//')${NORMAL}"
 echo -e "${YELLOW}------------------------------------------${NORMAL}"
 echo ""
 
