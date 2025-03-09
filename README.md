@@ -1,4 +1,4 @@
-# eyeprover
+# arvol
 
 - proof engine using webized prolog which basically means that atoms can be IRIs
 - besides top-down reasoning with `conclusion :- premise` rules, it also does bottom-up reasoning with `conclusion :+ premise` rules
@@ -20,14 +20,11 @@
 
 ## installation and test
 
-- install [scryer](https://github.com/mthom/scryer-prolog#installing-scryer-prolog), [swipl](http://www.swi-prolog.org/Download.html),
-  [trealla](https://github.com/trealla-prolog/trealla#building) and run the tests
+- install [trealla](https://github.com/trealla-prolog/trealla#building) and run the tests
     ```
-    git clone https://github.com/eyereasoner/eyeprover
-    cd eyeprover/etc
-    ./test-scryer
-    ./test-swipl
-    ./test-trealla
+    git clone https://github.com/eyereasoner/arvol
+    cd arvol/etc
+    ./test
     ```
 
 ## background

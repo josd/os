@@ -1,0 +1,4 @@
+#!/bin/bash
+export ARVOL=$(dirname "$(readlink -f "$0")")/arvol.pl
+
+tpl -g main ${ARVOL} "$@"
