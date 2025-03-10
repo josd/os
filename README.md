@@ -20,7 +20,7 @@
 
 ## installation and test
 
-- install [trealla](https://github.com/trealla-prolog/trealla#building)
+- install [swipl]( http://www.swi-prolog.org/Download.html)
 - run the tests
     ```
     git clone https://github.com/eyereasoner/arvol

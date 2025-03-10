@@ -1,3 +1,3 @@
 :- op(1200, xfx, :+).
 
-answer('urn:example:sum'(4096,8390656)).
+answer('urn:example:sum'(4096, 8390656)).
