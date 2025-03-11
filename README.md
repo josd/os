@@ -21,7 +21,7 @@
 ## test
 ```
 git clone https://github.com/eyereasoner/arvol
-cd arvol/etc
+cd arvol
 ./test
 ```
 
