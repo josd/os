@@ -14,7 +14,7 @@
     (   combination(1, All, Perm)
     ;   combination(2, All, Perm)
     ),
-    difference(All, Perm, Not).
+    diff(All, Perm, Not).
 
 % combination
 combination(0, _, []).
@@ -26,12 +26,12 @@ combination(I, As, Bs) :-
     sort([B|Ds], Bs).
 
 % difference
-difference([], _, []).
-difference([A|Bs], Cs, Ds) :-
+diff([], _, []).
+diff([A|Bs], Cs, Ds) :-
     (   memberchk(A, Cs)
-    ->  difference(Bs, Cs, Ds)
+    ->  diff(Bs, Cs, Ds)
     ;   Ds = [A|Es],
-        difference(Bs, Cs, Es)
+        diff(Bs, Cs, Es)
     ).
 
 % query

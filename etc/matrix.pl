@@ -1,9 +1,7 @@
 % Matrix
 % See https://en.wikipedia.org/wiki/Matrix_(mathematics)
 % Original code from https://github.com/friguzzi/matrix
-
-:- op(1200, xfx, :+).
-
+%
 % This module performs matrix operations.
 % Impemented operations:
 %  - sum
@@ -22,6 +20,8 @@
 % @copyright Fabrizio Riguzzi
 
 :- op(1200, xfx, :+).
+
+:- use_module(library(apply)).
 
 %% matrix_div_scal(+A, +V, -B) is det.
 % divide matrix A by scalar V

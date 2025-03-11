@@ -1,6 +1,6 @@
 # arvol
 
-- proof engine using webized prolog which basically means that atoms can be IRIs
+- using webized prolog which basically means that atoms can be IRIs
 - besides top-down reasoning with `conclusion :- premise` rules, it also does bottom-up reasoning with `conclusion :+ premise` rules
 - variables are interpreted universally except for `conclusion :+ premise` conclusion-only variables which are interpreted existentially
 - bottom-up reasoning can use `stable(n)` to fail if the deductive closure at level `n` is not yet stable
@@ -18,15 +18,12 @@
 - performing bottom-up proof steps `step/3`
 - avoiding loops that could occur with top-down reasoning
 
-## installation and test
-
-- install [swipl]( http://www.swi-prolog.org/Download.html)
-- run the tests
-    ```
-    git clone https://github.com/eyereasoner/arvol
-    cd arvol/etc
-    ./test
-    ```
+## test
+```
+git clone https://github.com/eyereasoner/arvol
+cd arvol/etc
+./test
+```
 
 ## background
 

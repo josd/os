@@ -2,6 +2,8 @@
 
 :- op(1200, xfx, :+).
 
+:- use_module(library(apply)).
+
 'urn:example:enigma1225'(Size, [Permutation, Board, Max]) :-
     setof(Total, M^Freq^Perm^square(Size, M, Total, Freq, Perm), Totals),
     lastlist(Totals, Max),
@@ -213,12 +215,12 @@ transpose_matrix([A|B], C) :-
 
 transpose_matrix([], _, []).
 transpose_matrix([_|A], B, [C|D]) :-
-    lists_fr(B, C, E),
+    lists_reform(B, C, E),
     transpose_matrix(A, E, D).
 
-lists_fr([], [], []).
-lists_fr([[A|B]|C], [A|D], [B|E]) :-
-    lists_fr(C, D, E).
+lists_reform([], [], []).
+lists_reform([[A|B]|C], [A|D], [B|E]) :-
+    lists_reform(C, D, E).
 
 % query
 true :+ 'urn:example:enigma1225'(8, _).

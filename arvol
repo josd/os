@@ -1,4 +1,2 @@
 #!/bin/bash
-export ARVOL=$(dirname "$(readlink -f "$0")")/arvol.pl
-
-swipl -g main ${ARVOL} "$@"
+eye --quiet --arvol "$@"

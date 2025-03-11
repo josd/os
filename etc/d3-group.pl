@@ -34,12 +34,12 @@ compose(reflection_c, reflection_a, rotation_120).
 compose(reflection_c, reflection_b, rotation_240).
 
 % inverse elements
-inverse(identity, identity).
-inverse(rotation_120, rotation_240).
-inverse(rotation_240, rotation_120).
-inverse(reflection_a, reflection_a).
-inverse(reflection_b, reflection_b).
-inverse(reflection_c, reflection_c).
+inversion(identity, identity).
+inversion(rotation_120, rotation_240).
+inversion(rotation_240, rotation_120).
+inversion(reflection_a, reflection_a).
+inversion(reflection_b, reflection_b).
+inversion(reflection_c, reflection_c).
 
 % check if a set is a valid group
 'urn:example:validGroup'(Group) :-
@@ -55,7 +55,7 @@ inverse(reflection_c, reflection_c).
     ),
     forall(
         (   member(X, Group),
-            inverse(X, Y)
+            inversion(X, Y)
         ),
         member(Y, Group)
     ).

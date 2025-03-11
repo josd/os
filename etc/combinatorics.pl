@@ -24,4 +24,4 @@ true :+ 'urn:example:combination'([3, [1, 2, 3, 4, 5]], _).
 true :+ 'urn:example:combination'([4, [1, 2, 3, 4, 5]], _).
 true :+ 'urn:example:combination'([5, [1, 2, 3, 4, 5]], _).
 true :+ 'urn:example:permutation'([1, 2, 3, 4, 5], _).
-true :+ 'urn:example:permutation'("rvo", _).
+true :+ 'urn:example:permutation'([r, v, o], _).
