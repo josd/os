@@ -1,7 +1,7 @@
 # arvol
 
 - using webized prolog which basically means that atoms can be IRIs
-- besides top-down reasoning with `conclusion :- premise` rules, it also does bottom-up reasoning with `conclusion :+ premise` rules
+- besides top-down reasoning with `conclusion :- premise` rules, it also supports bottom-up reasoning with `conclusion :+ premise` rules
 - variables are interpreted universally except for `conclusion :+ premise` conclusion-only variables which are interpreted existentially
 - bottom-up reasoning can use `stable(n)` to fail if the deductive closure at level `n` is not yet stable
 - bottom-up reasoning steps are performed as `step(rule, premise_inst, conclusion_inst)`
