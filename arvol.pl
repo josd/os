@@ -17,11 +17,11 @@
 :- dynamic(count/2).
 :- dynamic(fuse/1).
 :- dynamic(limit/1).
-:- dynamic(step/2).
+:- dynamic(step/3).
 
 :- set_prolog_flag(double_quotes, chars).
 
-version_info('arvol v0.0.8 (2025-03-09)').
+version_info('arvol v0.0.9 (2025-03-11)').
 
 % main goal
 main :-
@@ -79,22 +79,26 @@ main :-
 % 4/ backtrack to 2/ and if it fails go to 5/
 % 5/ if brake
 %       if not stable start again at 1/
-%       else output step(Prem, Conc) and stop
+%       else output step(Rule, Prem, Conc) and stop
 %    else assert brake and start again at 1/
 %
 aam :-
     (   (Conc :+ Prem),     % 1/
+        copy_term((Conc :+ Prem), Rule),
         Prem,               % 2/
         (   Conc = true     % 3/
-        ->  astep(answer(Prem))
+        ->  (   \+ answer(Prem)
+            ->  assertz(answer(Prem))
+            ;   true
+            )
         ;   (   Conc = false
             ->  write(':- op(1200, xfx, :+).'),
                 nl,
                 nl,
                 portray_clause(fuse(Prem)),
-                (   step(_, _)
+                (   step(_, _, _)
                 ->  nl,
-                    \+ (step(P, C), \+ portray_clause(step(P, C)))
+                    \+ (step(R, P, C), \+ portray_clause(step(R, P, C)))
                 ;   true
                 ),
                 throw(halt(2))
@@ -103,8 +107,12 @@ aam :-
                 ;   true
                 ),
                 \+ Conc,
-                astep(Conc),
-                astep(step(Prem, Conc)),
+                conj_list(Conc, Concs),
+                \+ (member(C, Concs), \+ assertz(C)),
+                (   \+ step(Rule, Prem, Conc)
+                ->  assertz(step(Rule, Prem, Conc))
+                ;   true
+                ),
                 retract(brake)
             )
         ),
@@ -123,25 +131,15 @@ aam :-
                     \+ (answer(P), \+ portray_clause(answer(P)))
                 ;   true
                 ),
-                (   step(_, _)
+                (   step(_, _, _)
                 ->  nl,
-                    \+ (step(P, C), \+ portray_clause(step(P, C)))
+                    \+ (step(R, P, C), \+ portray_clause(step(R,P, C)))
                 ;   true
                 )
             )
         ;   assertz(brake),
             aam
         )
-    ).
-
-% assert new step
-astep((B, C)) :-
-    astep(B),
-    astep(C).
-astep(A) :-
-    (   \+ A
-    ->  assertz(A)
-    ;   true
     ).
 
 % skolemize
