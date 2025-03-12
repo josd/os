@@ -21,7 +21,7 @@
 
 :- set_prolog_flag(double_quotes, chars).
 
-version_info('arvol v0.0.11 (2025-03-12)').
+version_info('arvol v0.0.12 (2025-03-12)').
 
 % main goal
 main :-
@@ -39,8 +39,11 @@ main :-
         nl,
         halt(0)
     ),
-    \+ ((Conc :+ Prem), \+ dynify((Conc :+ Prem))),
-    catch(aam, E,
+    forall(
+        (Conc :+ Prem),
+        dynify((Conc :+ Prem))
+    ),
+    catch(eam, E,
         (   (   E = halt(Exit)
             ->  true
             ;   write(user_error, E),
@@ -52,16 +55,12 @@ main :-
     count(fm, Fm),
     (   Fm = 0
     ->  true
-    ;   write(user_error, '*** fm='),
-        write(user_error, Fm),
-        write(user_error, '\n')
+    ;   format(user_error, "*** fm=~w~n", [Fm])
     ),
     count(mf, Mf),
     (   Mf = 0
     ->  true
-    ;   write(user_error, '*** mf='),
-        write(user_error, Mf),
-        write(user_error, '\n')
+    ;   format(user_error, "*** mf=~w~n", [Mf])
     ),
     (   Exit = 0
     ->  true
@@ -69,34 +68,35 @@ main :-
     ),
     halt(Exit).
 
-% arvol abstract machine
+% eye arvol machine
 %
 % 1/ select rule Conc :+ Prem
 % 2/ prove Prem and if it fails backtrack to 1/
-% 3/ if Conc = true assert answer(Prem)
-%    else if Conc = false stop with return code 2
-%    else if ~Conc assert Conc and retract brake
+% 3/ if Conc = true assert answer + step
+%    else if Conc = false output fuse + steps and stop
+%    else if ~Conc assert Conc + step and retract brake
 % 4/ backtrack to 2/ and if it fails go to 5/
 % 5/ if brake
 %       if not stable start again at 1/
-%       else output step(Rule, Prem, Conc) and stop
+%       else output answers + steps and stop
 %    else assert brake and start again at 1/
 %
-aam :-
-    (   (Conc :+ Prem),     % 1/
+eam :-
+    (   (Conc :+ Prem),                     % 1/
         copy_term((Conc :+ Prem), Rule),
-        Prem,               % 2/
-        (   Conc = true     % 3/
+        catch(call(Prem), _, fail),         % 2/
+        (   Conc = true                     % 3/
         ->  aconj(answer(Prem)),
             aconj(step(Rule, Prem, Conc))
         ;   (   Conc = false
-            ->  write(':- op(1200, xfx, :+).'),
-                nl,
-                nl,
+            ->  format(":- op(1200, xfx, :+).~n~n", []),
                 portray_clause(fuse(Prem)),
-                (   step(_, _, _)
-                ->  nl,
-                    \+ (step(R, P, C), \+ portray_clause(step(R, P, C)))
+                (   step(_, _, _),
+                    nl
+                ->  forall(
+                        step(R, P, C),
+                        portray_clause(step(R, P, C))
+                    )
                 ;   true
                 ),
                 throw(halt(2))
@@ -104,35 +104,36 @@ aam :-
                 ->  skolemize(Conc, 0, _)
                 ;   true
                 ),
-                \+ Conc,
+                \+catch(call(Conc), _, fail),
                 aconj(Conc),
                 aconj(step(Rule, Prem, Conc)),
                 retract(brake)
             )
         ),
-        fail                % 4/
-    ;   (   brake           % 5/
+        fail                                % 4/
+    ;   (   brake                           % 5/
         ->  (   closure(Closure),
                 limit(Limit),
                 Closure < Limit,
                 NewClosure is Closure+1,
                 becomes(closure(Closure), closure(NewClosure)),
-                aam
-            ;   write(':- op(1200, xfx, :+).'),
-                nl,
-                (   answer(_)
-                ->  nl,
-                    \+ (answer(P), \+ portray_clause(answer(P)))
-                ;   true
+                eam
+            ;   format(":- op(1200, xfx, :+).~n~n", []),
+                forall(
+                    answer(P),
+                    portray_clause(answer(P))
                 ),
-                (   step(_, _, _)
-                ->  nl,
-                    \+ (step(R, P, C), \+ portray_clause(step(R,P, C)))
+                (   step(_, _, _),
+                    nl
+                ->  forall(
+                        step(R, P, C),
+                        portray_clause(step(R, P, C))
+                    )
                 ;   true
                 )
             )
         ;   assertz(brake),
-            aam
+            eam
         )
     ).
 
@@ -175,9 +176,15 @@ stable(Level) :-
 becomes(A, B) :-
     catch(A, _, fail),
     conj_list(A, C),
-    \+ (member(D, C), \+ retract(D)),
+    forall(
+        member(D, C),
+        retract(D)
+    ),
     conj_list(B, E),
-    \+ (member(F, E), \+ assertz(F)).
+    forall(
+        member(F, E),
+        assertz(F)
+    ).
 
 conj_list(true, []).
 conj_list(A, [A]) :-
@@ -212,18 +219,16 @@ dynify(A) :-
 
 % debugging tools
 fm(A) :-
-    write(user_error, '*** '),
-    writeq(user_error, A),
-    write(user_error, '\n'),
+    format(user_error, "*** ~q~n", [A]),
     count(fm, B),
     C is B+1,
     becomes(count(fm, B), count(fm, C)).
 
 mf(A) :-
-    \+ (catch(A, _, fail),
-     \+ (   write(user_error, '*** '),
-            writeq(user_error, A),
-            write(user_error, '\n'),
+    forall(
+        catch(A, _, fail),
+        (   write(user_error, '*** '),
+            portray_clause(user_error, A),
             count(mf, B),
             C is B+1,
             becomes(count(mf, B), count(mf, C))
