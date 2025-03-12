@@ -21,7 +21,7 @@
 
 :- set_prolog_flag(double_quotes, chars).
 
-version_info('arvol v0.0.12 (2025-03-12)').
+version_info('arvol v0.0.13 (2025-03-12)').
 
 % main goal
 main :-
@@ -46,8 +46,7 @@ main :-
     catch(eam, E,
         (   (   E = halt(Exit)
             ->  true
-            ;   write(user_error, E),
-                write(user_error, '\n'),
+            ;   format(user_error, "*** ~w~n", [E]),
                 Exit = 1
             )
         )
@@ -82,10 +81,10 @@ main :-
 %    else assert brake and start again at 1/
 %
 eam :-
-    (   (Conc :+ Prem),                     % 1/
+    (   (Conc :+ Prem),                         % 1/
         copy_term((Conc :+ Prem), Rule),
-        catch(call(Prem), _, fail),         % 2/
-        (   Conc = true                     % 3/
+        Prem,                                   % 2/
+        (   Conc = true                         % 3/
         ->  aconj(answer(Prem)),
             aconj(step(Rule, Prem, Conc))
         ;   (   Conc = false
@@ -104,14 +103,14 @@ eam :-
                 ->  skolemize(Conc, 0, _)
                 ;   true
                 ),
-                \+catch(call(Conc), _, fail),
+                \+ Conc,
                 aconj(Conc),
                 aconj(step(Rule, Prem, Conc)),
                 retract(brake)
             )
         ),
-        fail                                % 4/
-    ;   (   brake                           % 5/
+        fail                                    % 4/
+    ;   (   brake                               % 5/
         ->  (   closure(Closure),
                 limit(Limit),
                 Closure < Limit,
