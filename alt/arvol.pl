@@ -21,7 +21,7 @@
 
 :- set_prolog_flag(double_quotes, chars).
 
-version_info('arvol v0.0.13 (2025-03-12)').
+version_info('arvol v0.0.14 (2025-03-12)').
 
 % main goal
 main :-
@@ -35,8 +35,7 @@ main :-
     (   (_ :+ _)
     ->  true
     ;   version_info(Version),
-        write(Version),
-        nl,
+        format(user_error, "~w~n", [Version]),
         halt(0)
     ),
     forall(
@@ -226,7 +225,7 @@ fm(A) :-
 mf(A) :-
     forall(
         catch(A, _, fail),
-        (   write(user_error, '*** '),
+        (   format(user_error, "*** ", []),
             portray_clause(user_error, A),
             count(mf, B),
             C is B+1,
