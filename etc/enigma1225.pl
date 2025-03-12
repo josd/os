@@ -2,8 +2,6 @@
 
 :- op(1200, xfx, :+).
 
-:- use_module(library(apply)).
-
 'urn:example:enigma1225'(Size, [Permutation, Board, Max]) :-
     setof(Total, M^Freq^Perm^square(Size, M, Total, Freq, Perm), Totals),
     lastlist(Totals, Max),

@@ -21,8 +21,6 @@
 
 :- op(1200, xfx, :+).
 
-:- use_module(library(apply)).
-
 %% matrix_div_scal(+A, +V, -B) is det.
 % divide matrix A by scalar V
 %
