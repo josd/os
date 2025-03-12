@@ -19,9 +19,16 @@
 - avoiding loops that could occur with top-down reasoning
 
 ## test
+For [eye](https://github.com/eyereasoner/eye/blob/master/INSTALL)
 ```
 git clone https://github.com/eyereasoner/arvol
-cd arvol
+cd arvol/etc
+./test
+```
+and for [trealla](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building)
+```
+git clone https://github.com/eyereasoner/arvol
+cd arvol/alt
 ./test
 ```
 
