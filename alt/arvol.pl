@@ -21,7 +21,7 @@
 
 :- set_prolog_flag(double_quotes, chars).
 
-version_info('arvol v0.0.10 (2025-03-12)').
+version_info('arvol v0.0.11 (2025-03-12)').
 
 % main goal
 main :-
@@ -87,10 +87,8 @@ aam :-
         copy_term((Conc :+ Prem), Rule),
         Prem,               % 2/
         (   Conc = true     % 3/
-        ->  (   \+ answer(Prem)
-            ->  assertz(answer(Prem))
-            ;   true
-            )
+        ->  aconj(answer(Prem)),
+            aconj(step(Rule, Prem, Conc))
         ;   (   Conc = false
             ->  write(':- op(1200, xfx, :+).'),
                 nl,
@@ -107,12 +105,8 @@ aam :-
                 ;   true
                 ),
                 \+ Conc,
-                conj_list(Conc, Concs),
-                \+ (member(C, Concs), \+ assertz(C)),
-                (   \+ step(Rule, Prem, Conc)
-                ->  assertz(step(Rule, Prem, Conc))
-                ;   true
-                ),
+                aconj(Conc),
+                aconj(step(Rule, Prem, Conc)),
                 retract(brake)
             )
         ),
@@ -140,6 +134,16 @@ aam :-
         ;   assertz(brake),
             aam
         )
+    ).
+
+% assert conjunction
+aconj((B, C)) :-
+    aconj(B),
+    aconj(C).
+aconj(A) :-
+    (   \+ A
+    ->  assertz(A)
+    ;   true
     ).
 
 % skolemize

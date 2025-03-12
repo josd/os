@@ -26,6 +26,7 @@ step(('urn:example:re'(A,B):+'urn:example:r'(A,B)),'urn:example:r'(c,sk_0),'urn:
 step(('urn:example:r'(A,B),'urn:example:r'(C,B):+'urn:example:r'(D,A),'urn:example:r'(D,C)),('urn:example:r'(b,sk_0),'urn:example:r'(b,sk_0)),('urn:example:r'(sk_0,sk_0),'urn:example:r'(sk_0,sk_0))).
 step(('urn:example:not_re'(c,A):+'urn:example:re'(b,A)),'urn:example:re'(b,sk_0),'urn:example:not_re'(c,sk_0)).
 step(('urn:example:not_re'(b,A):+'urn:example:re'(c,A)),'urn:example:re'(c,sk_0),'urn:example:not_re'(b,sk_0)).
+step((true:+'urn:example:re'(b,A),'urn:example:re'(c,A)),('urn:example:re'(b,sk_0),'urn:example:re'(c,sk_0)),true).
 step(('urn:example:e'(A,A):+'urn:example:re'(B,A)),'urn:example:re'(b,sk_0),'urn:example:e'(sk_0,sk_0)).
 step(('urn:example:not_e'(A,B):+'urn:example:not_re'(A,C),'urn:example:re'(B,C)),('urn:example:not_re'(c,sk_0),'urn:example:re'(c,sk_0)),'urn:example:not_e'(c,c)).
 step(('urn:example:not_e'(A,B):+'urn:example:not_re'(A,C),'urn:example:re'(B,C)),('urn:example:not_re'(b,sk_0),'urn:example:re'(b,sk_0)),'urn:example:not_e'(b,b)).
