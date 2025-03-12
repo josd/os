@@ -21,7 +21,7 @@
 
 :- set_prolog_flag(double_quotes, chars).
 
-version_info('arvol v0.0.14 (2025-03-12)').
+version_info('arvol v0.0.15 (2025-03-13)').
 
 % main goal
 main :-
@@ -66,7 +66,9 @@ main :-
     ),
     halt(Exit).
 
+% -----------------
 % eye arvol machine
+% -----------------
 %
 % 1/ select rule Conc :+ Prem
 % 2/ prove Prem and if it fails backtrack to 1/
@@ -184,6 +186,11 @@ becomes(A, B) :-
         assertz(F)
     ).
 
+%
+% Support
+%
+
+% conjunction tofro list
 conj_list(true, []).
 conj_list(A, [A]) :-
     A \= (_, _),
