@@ -19,28 +19,26 @@
 :- dynamic(limit/1).
 :- dynamic(step/3).
 
-:- set_prolog_flag(double_quotes, chars).
-
-version_info('arvol v0.0.15 (2025-03-13)').
+version('arvol v0.0.16 (2025-03-13)').
 
 % main goal
-main :-
+go :-
     catch(use_module(library(iso_ext)), _, true),
     catch(use_module(library(format)), _, true),
     catch(use_module(library(between)), _, true),
     assertz(closure(0)),
     assertz(limit(-1)),
-    assertz(count(fm, 0)),
-    assertz(count(mf, 0)),
+    assertz(count(f, 0)),
+    assertz(count(m, 0)),
     (   (_ :+ _)
     ->  true
-    ;   version_info(Version),
+    ;   version(Version),
         format(user_error, "~w~n", [Version]),
         halt(0)
     ),
     forall(
         (Conc :+ Prem),
-        dynify((Conc :+ Prem))
+        dyn((Conc :+ Prem))
     ),
     catch(eam, E,
         (   (   E = halt(Exit)
@@ -50,15 +48,15 @@ main :-
             )
         )
     ),
-    count(fm, Fm),
-    (   Fm = 0
+    count(f, F),
+    (   F = 0
     ->  true
-    ;   format(user_error, "*** fm=~w~n", [Fm])
+    ;   format(user_error, "*** f=~w~n", [F])
     ),
-    count(mf, Mf),
-    (   Mf = 0
+    count(m, M),
+    (   M = 0
     ->  true
-    ;   format(user_error, "*** mf=~w~n", [Mf])
+    ;   format(user_error, "*** m=~w~n", [M])
     ),
     (   Exit = 0
     ->  true
@@ -175,44 +173,40 @@ stable(Level) :-
 % linear implication
 becomes(A, B) :-
     catch(A, _, fail),
-    conj_list(A, C),
+    clist(A, C),
     forall(
         member(D, C),
         retract(D)
     ),
-    conj_list(B, E),
+    clist(B, E),
     forall(
         member(F, E),
         assertz(F)
     ).
 
-%
-% Support
-%
-
 % conjunction tofro list
-conj_list(true, []).
-conj_list(A, [A]) :-
+clist(true, []).
+clist(A, [A]) :-
     A \= (_, _),
     A \= false,
     !.
-conj_list((A, B), [A|C]) :-
-    conj_list(B, C).
+clist((A, B), [A|C]) :-
+    clist(B, C).
 
 % make dynamic predicates
-dynify(A) :-
+dyn(A) :-
     var(A),
     !.
-dynify(A) :-
+dyn(A) :-
     atomic(A),
     !.
-dynify([]) :-
+dyn([]) :-
     !.
-dynify([A|B]) :-
+dyn([A|B]) :-
     !,
-    dynify(A),
-    dynify(B).
-dynify(A) :-
+    dyn(A),
+    dyn(B).
+dyn(A) :-
     A =.. [B|C],
     length(C, N),
     (   current_predicate(B/N)
@@ -220,22 +214,22 @@ dynify(A) :-
     ;   functor(T, B, N),
         catch((assertz(T), retract(T)), _, true)
     ),
-    dynify(C).
+    dyn(C).
 
 % debugging tools
-fm(A) :-
+f(A) :-
     format(user_error, "*** ~q~n", [A]),
-    count(fm, B),
+    count(f, B),
     C is B+1,
-    becomes(count(fm, B), count(fm, C)).
+    becomes(count(f, B), count(f, C)).
 
-mf(A) :-
+m(A) :-
     forall(
         catch(A, _, fail),
         (   format(user_error, "*** ", []),
             portray_clause(user_error, A),
-            count(mf, B),
+            count(m, B),
             C is B+1,
-            becomes(count(mf, B), count(mf, C))
+            becomes(count(m, B), count(m, C))
         )
     ).
