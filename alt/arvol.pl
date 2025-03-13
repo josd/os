@@ -79,6 +79,7 @@ go :-
 %       else output answers + steps and stop
 %    else assert brake and start again at 1/
 %
+
 eam :-
     (   (Conc :+ Prem),                         % 1/
         copy_term((Conc :+ Prem), Rule),
