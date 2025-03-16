@@ -25,50 +25,50 @@ plexus is webized prolog and nexus is RDF core
 ### testing plexus
 
 - install [trealla](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building) and run
-    ```
-    git clone https://github.com/eyereasoner/arvol
-    cd arvol/plexus
-    ./test
-    ```
+```
+git clone https://github.com/eyereasoner/arvol
+cd arvol/plexus
+./test
+```
 
 ## nexus
 
 - nexus supports reasoning with forward rules described in RDF as
   e.g.
-    ```
-    # subclass rule
-    [ log:and (
-        [ log:triple (var:A rdfs:subClassOf var:B)]
-        [ log:triple (var:S rdf:type var:A)]
-    )] log:implies [ log:and (
-        [ log:triple (var:S rdf:type var:B)]
-    )].
-    ```
+```
+# subclass rule
+[ log:and (
+    [ log:triple (var:A rdfs:subClassOf var:B)]
+    [ log:triple (var:S rdf:type var:A)]
+)] log:implies [ log:and (
+    [ log:triple (var:S rdf:type var:B)]
+)].
+```
 
 - nexus supports reasoning with backward rules described in RDF as
   e.g.
-    ```
-    # is the age of a person above some duration?
-    [ log:and (
-        [ log:triple (var:S :ageAbove var:A)]
-    )] log:isImpliedBy [ log:and (
-        [ log:triple (var:S :birthDay var:B)]
-        [ log:triple ("" time:localTime var:D)]
-        [ log:triple ((var:D var:B) math:difference var:F)]
-        [ log:triple (var:F math:greaterThan var:A)]
-    )].
-    ```
+```
+# is the age of a person above some duration?
+[ log:and (
+    [ log:triple (var:S :ageAbove var:A)]
+)] log:isImpliedBy [ log:and (
+    [ log:triple (var:S :birthDay var:B)]
+    [ log:triple ("" time:localTime var:D)]
+    [ log:triple ((var:D var:B) math:difference var:F)]
+    [ log:triple (var:F math:greaterThan var:A)]
+)].
+```
 
 - nexus supports querying with queries described in RDF as
   e.g.
-    ```
-    # who is a what?
-    [ log:and (
-        [ log:triple (var:WHO rdf:type var:WHAT)]
-    )] log:query [ log:and (
-        [ log:triple (var:WHO rdf:type var:WHAT)]
-    )].
-    ```
+```
+# who is a what?
+[ log:and (
+    [ log:triple (var:WHO rdf:type var:WHAT)]
+)] log:query [ log:and (
+    [ log:triple (var:WHO rdf:type var:WHAT)]
+)].
+```
 
 - a forward rule with `log:implies false` is an inference fuse
 
@@ -77,18 +77,18 @@ plexus is webized prolog and nexus is RDF core
   conclusion-only variables which are interpreted existentially
 
 - literal subjects are described as
-    ```
-    [] rdf:value "aha"; :p :o.
-    ```
+```
+[] rdf:value "aha"; :p :o.
+```
 
 ### testing nexus
 
 - install [eye](https://github.com/eyereasoner/eye/blob/master/INSTALL) and run
-    ```
-    git clone https://github.com/eyereasoner/arvol
-    cd arvol/nexus
-    ./test
-    ```
+```
+git clone https://github.com/eyereasoner/arvol
+cd arvol/nexus
+./test
+```
 
 ## background
 
