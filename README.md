@@ -1,5 +1,7 @@
 # arvol = plexus + nexus
 
+plexus is webized prolog and nexus is RDF core
+
 ## plexus
 
 - using webized prolog which basically means that atoms can be IRIs
