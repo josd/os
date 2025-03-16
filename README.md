@@ -23,7 +23,7 @@ plexus is webized prolog and nexus is RDF core
 - avoiding loops that could occur with top-down reasoning
 
 ### testing plexus using [trealla](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building)
-
+    
     ```
     git clone https://github.com/eyereasoner/arvol
     cd arvol/plexus
@@ -81,7 +81,7 @@ plexus is webized prolog and nexus is RDF core
     ```
 
 ### testing nexus using [eye](https://github.com/eyereasoner/eye/blob/master/INSTALL)
-
+    
     ```
     git clone https://github.com/eyereasoner/arvol
     cd arvol/nexus
