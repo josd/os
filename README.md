@@ -1,6 +1,6 @@
 # arvol = plexus + nexus
 
-plexus is webized prolog and nexus is RDF core
+plexus is webized prolog and nexus is rdf core
 
 ## plexus
 
@@ -33,7 +33,7 @@ cd arvol/plexus
 
 ## nexus
 
-- nexus supports reasoning with forward rules described in RDF core as
+- nexus supports reasoning with forward rules described in rdf core as
   e.g.
 ```
 # subclass rule
@@ -45,7 +45,7 @@ cd arvol/plexus
 )].
 ```
 
-- nexus supports reasoning with backward rules described in RDF core as
+- nexus supports reasoning with backward rules described in rdf core as
   e.g.
 ```
 # is the age of a person above some duration?
@@ -59,7 +59,7 @@ cd arvol/plexus
 )].
 ```
 
-- nexus supports querying with queries described in RDF core as
+- nexus supports querying with queries described in rdf core as
   e.g.
 ```
 # who is a what?
