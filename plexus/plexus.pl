@@ -1,6 +1,6 @@
-% -------------------
-% arvol -- Jos De Roo
-% -------------------
+% --------------------
+% plexus -- Jos De Roo
+% --------------------
 %
 % See https://github.com/eyereasoner/arvol
 %
@@ -19,7 +19,7 @@
 :- dynamic(limit/1).
 :- dynamic(step/3).
 
-version('arvol v0.0.16 (2025-03-13)').
+version('plexus v0.0.17 (2025-03-16)').
 
 % main goal
 go :-
@@ -64,9 +64,9 @@ go :-
     ),
     halt(Exit).
 
-% -----------------
-% eye arvol machine
-% -----------------
+% --------------------
+% eye abstract machine
+% --------------------
 %
 % 1/ select rule Conc :+ Prem
 % 2/ prove Prem and if it fails backtrack to 1/
