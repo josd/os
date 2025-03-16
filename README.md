@@ -24,7 +24,7 @@ plexus is webized prolog and nexus is RDF core
 
 ### testing plexus
 
-- Install [trealla](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building) and run
+- install [trealla](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building) and run
     ```
     git clone https://github.com/eyereasoner/arvol
     cd arvol/plexus
@@ -70,20 +70,20 @@ plexus is webized prolog and nexus is RDF core
     )].
     ```
 
-- A forward rule with `log:implies false` is an inference fuse.
+- a forward rule with `log:implies false` is an inference fuse
 
-- The `var:` prefix is `<http://www.w3.org/2000/10/swap/var#>` and is used for
+- the `var:` prefix is `<http://www.w3.org/2000/10/swap/var#>` and is used for
   variables that are interpreted universally except for forward rule
-  conclusion-only variables which are interpreted existentially.
+  conclusion-only variables which are interpreted existentially
 
-- Literal subjects are described as
+- literal subjects are described as
     ```
     [] rdf:value "aha"; :p :o.
     ```
 
 ### testing nexus
 
-- Install [eye](https://github.com/eyereasoner/eye/blob/master/INSTALL) and run
+- install [eye](https://github.com/eyereasoner/eye/blob/master/INSTALL) and run
     ```
     git clone https://github.com/eyereasoner/arvol
     cd arvol/nexus
