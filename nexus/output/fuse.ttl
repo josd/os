@@ -1,0 +1,14 @@
+** ERROR ** eam ** inference_fuse(
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix var: <http://www.w3.org/2000/10/swap/var#>.
+@prefix : <https://eyereasoner.github.io/ns#>.
+@prefix r: <http://www.w3.org/2000/10/swap/reason#>.
+@prefix skolem: <https://eyereasoner.github.io/.well-known/genid/d3499b1f-2432-4d09-8a8e-8a67dae35129#>.
+@prefix n3: <http://www.w3.org/2004/06/rei#>.
+
+# inference fuse
+{
+    :stone :color :black.
+    :stone :color :white.
+} => false.
+)
