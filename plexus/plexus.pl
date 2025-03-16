@@ -19,17 +19,17 @@
 :- dynamic(limit/1).
 :- dynamic(step/3).
 
-version('plexus v0.0.17 (2025-03-16)').
+version('plexus v0.0.18 (2025-03-17)').
 
 % main goal
-go :-
+main :-
     catch(use_module(library(iso_ext)), _, true),
     catch(use_module(library(format)), _, true),
     catch(use_module(library(between)), _, true),
     assertz(closure(0)),
     assertz(limit(-1)),
-    assertz(count(f, 0)),
-    assertz(count(m, 0)),
+    assertz(count(fm, 0)),
+    assertz(count(mf, 0)),
     (   (_ :+ _)
     ->  true
     ;   version(Version),
@@ -38,25 +38,24 @@ go :-
     ),
     forall(
         (Conc :+ Prem),
-        dyn((Conc :+ Prem))
+        dynify((Conc :+ Prem))
     ),
-    catch(eam, E,
-        (   (   E = halt(Exit)
-            ->  true
-            ;   format(user_error, "*** ~w~n", [E]),
-                Exit = 1
-            )
+    catch(plexus, E,
+        (   E = halt(Exit)
+        ->  true
+        ;   format(user_error, "*** ~w~n", [E]),
+            Exit = 1
         )
     ),
-    count(f, F),
-    (   F = 0
+    count(fm, Fm),
+    (   Fm = 0
     ->  true
-    ;   format(user_error, "*** f=~w~n", [F])
+    ;   format(user_error, "*** fm=~w~n", [Fm])
     ),
-    count(m, M),
-    (   M = 0
+    count(mf, M),
+    (   Mf = 0
     ->  true
-    ;   format(user_error, "*** m=~w~n", [M])
+    ;   format(user_error, "*** mf=~w~n", [Mf])
     ),
     (   Exit = 0
     ->  true
@@ -64,9 +63,8 @@ go :-
     ),
     halt(Exit).
 
-% --------------------
-% eye abstract machine
-% --------------------
+%
+% plexus
 %
 % 1/ select rule Conc :+ Prem
 % 2/ prove Prem and if it fails backtrack to 1/
@@ -80,13 +78,13 @@ go :-
 %    else assert brake and start again at 1/
 %
 
-eam :-
+plexus :-
     (   (Conc :+ Prem),                         % 1/
         copy_term((Conc :+ Prem), Rule),
         Prem,                                   % 2/
         (   Conc = true                         % 3/
-        ->  aconj(answer(Prem)),
-            aconj(step(Rule, Prem, Conc))
+        ->  assert_conj(answer(Prem)),
+            assert_conj(step(Rule, Prem, Conc))
         ;   (   Conc = false
             ->  format(":- op(1200, xfx, :+).~n~n", []),
                 portray_clause(fuse(Prem)),
@@ -104,8 +102,8 @@ eam :-
                 ;   true
                 ),
                 \+ Conc,
-                aconj(Conc),
-                aconj(step(Rule, Prem, Conc)),
+                assert_conj(Conc),
+                assert_conj(step(Rule, Prem, Conc)),
                 retract(brake)
             )
         ),
@@ -116,7 +114,7 @@ eam :-
                 Closure < Limit,
                 NewClosure is Closure+1,
                 becomes(closure(Closure), closure(NewClosure)),
-                eam
+                plexus
             ;   format(":- op(1200, xfx, :+).~n~n", []),
                 forall(
                     answer(P),
@@ -132,15 +130,15 @@ eam :-
                 )
             )
         ;   assertz(brake),
-            eam
+            plexus
         )
     ).
 
 % assert conjunction
-aconj((B, C)) :-
-    aconj(B),
-    aconj(C).
-aconj(A) :-
+assert_conj((B, C)) :-
+    assert_conj(B),
+    assert_conj(C).
+assert_conj(A) :-
     (   \+ A
     ->  assertz(A)
     ;   true
@@ -174,40 +172,40 @@ stable(Level) :-
 % linear implication
 becomes(A, B) :-
     catch(A, _, fail),
-    clist(A, C),
+    conj_list(A, C),
     forall(
         member(D, C),
         retract(D)
     ),
-    clist(B, E),
+    conj_list(B, E),
     forall(
         member(F, E),
         assertz(F)
     ).
 
 % conjunction tofro list
-clist(true, []).
-clist(A, [A]) :-
+conj_list(true, []).
+conj_list(A, [A]) :-
     A \= (_, _),
     A \= false,
     !.
-clist((A, B), [A|C]) :-
-    clist(B, C).
+conj_list((A, B), [A|C]) :-
+    conj_list(B, C).
 
 % make dynamic predicates
-dyn(A) :-
+dynify(A) :-
     var(A),
     !.
-dyn(A) :-
+dynify(A) :-
     atomic(A),
     !.
-dyn([]) :-
+dynify([]) :-
     !.
-dyn([A|B]) :-
+dynify([A|B]) :-
     !,
-    dyn(A),
-    dyn(B).
-dyn(A) :-
+    dynify(A),
+    dynify(B).
+dynify(A) :-
     A =.. [B|C],
     length(C, N),
     (   current_predicate(B/N)
@@ -215,22 +213,22 @@ dyn(A) :-
     ;   functor(T, B, N),
         catch((assertz(T), retract(T)), _, true)
     ),
-    dyn(C).
+    dynify(C).
 
 % debugging tools
-f(A) :-
+fm(A) :-
     format(user_error, "*** ~q~n", [A]),
-    count(f, B),
+    count(fm, B),
     C is B+1,
-    becomes(count(f, B), count(f, C)).
+    becomes(count(fm, B), count(fm, C)).
 
-m(A) :-
+mf(A) :-
     forall(
         catch(A, _, fail),
         (   format(user_error, "*** ", []),
             portray_clause(user_error, A),
-            count(m, B),
+            count(mf, B),
             C is B+1,
-            becomes(count(m, B), count(m, C))
+            becomes(count(mf, B), count(mf, C))
         )
     ).
