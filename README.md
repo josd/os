@@ -22,8 +22,9 @@ plexus is webized prolog and nexus is RDF core
 - performing bottom-up proof steps `step/3`
 - avoiding loops that could occur with top-down reasoning
 
-### testing plexus using [trealla](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building)
-    
+### testing plexus
+
+- Install [trealla](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building) and run
     ```
     git clone https://github.com/eyereasoner/arvol
     cd arvol/plexus
@@ -80,8 +81,9 @@ plexus is webized prolog and nexus is RDF core
     [] rdf:value "aha"; :p :o.
     ```
 
-### testing nexus using [eye](https://github.com/eyereasoner/eye/blob/master/INSTALL)
-    
+### testing nexus
+
+- Install [eye](https://github.com/eyereasoner/eye/blob/master/INSTALL) and run
     ```
     git clone https://github.com/eyereasoner/arvol
     cd arvol/nexus
