@@ -20,16 +20,24 @@
 
 ## test
 
-- using [eye](https://github.com/eyereasoner/eye/blob/master/INSTALL)
+- testing webized prolog using [trealla](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building)
+```
+git clone https://github.com/eyereasoner/arvol
+cd arvol/alt
+./test
+```
+
+- testing webized prolog using [eye](https://github.com/eyereasoner/eye/blob/master/INSTALL)
 ```
 git clone https://github.com/eyereasoner/arvol
 cd arvol/etc
 ./test
 ```
-- using [trealla](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building)
+
+- testing RDF core using [eye](https://github.com/eyereasoner/eye/blob/master/INSTALL)
 ```
 git clone https://github.com/eyereasoner/arvol
-cd arvol/alt
+cd arvol/nexus
 ./test
 ```
 
