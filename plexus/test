@@ -21,7 +21,7 @@ pad () {
 }
 
 begin=$(($(date +%s)))
-for file in ../etc/*.pl
+for file in etc/*.pl
 do
     f="$(basename ${file})"
     echo -en "$(pad "${f}" -30)"

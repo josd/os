@@ -32,7 +32,7 @@
 - using [eye](https://github.com/eyereasoner/eye/blob/master/INSTALL)
     ```
     git clone https://github.com/eyereasoner/arvol
-    cd arvol/etc
+    cd arvol/plexus/etc
     ./test
     ```
 
