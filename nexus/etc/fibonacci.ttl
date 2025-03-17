@@ -29,7 +29,7 @@
     [ log:triple (var:X math:greaterThan 1)]
     [ log:triple ((var:X 1) math:difference var:J)]
     [ log:triple ((var:A var:B) math:sum var:K)]
-    [ log:triple ((var:J var:B var:K) :fib var:Y)]    
+    [ log:triple ((var:J var:B var:K) :fib var:Y)]
 )].
 
 # query
