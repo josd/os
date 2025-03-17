@@ -76,11 +76,6 @@ cd arvol/plexus
   variables that are interpreted universally except for forward rule
   conclusion-only variables which are interpreted existentially
 
-- literal subjects are described as
-```
-[] rdf:value "aha"; :p :o.
-```
-
 ### testing nexus
 
 - install [eye](https://github.com/eyereasoner/eye/blob/master/INSTALL) and run
