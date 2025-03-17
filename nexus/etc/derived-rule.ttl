@@ -1,11 +1,18 @@
+# ------------
+# Derived rule
+# ------------
+#
+# Proving a derived rule.
+
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix log: <http://www.w3.org/2000/10/swap/log#>.
 @prefix var: <http://www.w3.org/2000/10/swap/var#>.
 @prefix : <https://eyereasoner.github.io/ns#>.
 
 # facts
-:Minka rdf:type :Cat.
-:Charly rdf:type :Dog.
+:Alice a :Cat.
+:Minka a :Cat.
+:Charly a :Dog.
 
 # rule derivation
 [ log:and (
