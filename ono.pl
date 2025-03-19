@@ -1,8 +1,8 @@
-% -------------------
-% arvol -- Jos De Roo
-% -------------------
+% -----------------
+% ono -- Jos De Roo
+% -----------------
 %
-% See https://github.com/eyereasoner/arvol
+% See https://github.com/eyereasoner/ono
 %
 
 :- use_module(library(lists)).
@@ -19,7 +19,7 @@
 :- dynamic(limit/1).
 :- dynamic(step/3).
 
-version('arvol v0.0.19 (2025-03-17)').
+version('ono v0.1.0 (2025-03-19)').
 
 % main goal
 main :-
@@ -40,7 +40,7 @@ main :-
         (Conc :+ Prem),
         dynify((Conc :+ Prem))
     ),
-    catch(arvol, E,
+    catch(ono, E,
         (   E = halt(Exit)
         ->  true
         ;   format(user_error, "*** ~w~n", [E]),
@@ -64,7 +64,7 @@ main :-
     halt(Exit).
 
 %
-% arvol 
+% ono 
 %
 % 1/ select rule Conc :+ Prem
 % 2/ prove Prem and if it fails backtrack to 1/
@@ -78,7 +78,7 @@ main :-
 %    else assert brake and start again at 1/
 %
 
-arvol :-
+ono :-
     (   (Conc :+ Prem),                         % 1/
         copy_term((Conc :+ Prem), Rule),
         Prem,                                   % 2/
@@ -114,7 +114,7 @@ arvol :-
                 Closure < Limit,
                 NewClosure is Closure+1,
                 becomes(closure(Closure), closure(NewClosure)),
-                arvol
+                ono
             ;   format(":- op(1200, xfx, :+).~n~n", []),
                 forall(
                     answer(P),
@@ -130,7 +130,7 @@ arvol :-
                 )
             )
         ;   assertz(brake),
-            arvol
+            ono
         )
     ).
 

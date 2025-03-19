@@ -1,4 +1,4 @@
-# arvol
+# ono
 
 - using webized prolog which basically means that atoms can be IRIs
 - besides top-down reasoning with `conclusion :- premise` rules, it also supports bottom-up reasoning with `conclusion :+ premise` rules
@@ -22,8 +22,8 @@
 
 - install [trealla](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building) and run
 ```
-git clone https://github.com/eyereasoner/arvol
-cd arvol
+git clone https://github.com/eyereasoner/ono
+cd ono
 ./test
 ```
 
