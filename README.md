@@ -1,4 +1,4 @@
-⚠️ **Current development is going on at https://github.com/eyereasoner/eye/tree/master/nexus**
+⚠️ **latest developments** on https://github.com/eyereasoner/eye/tree/master/nexus
 
 # ono
 
