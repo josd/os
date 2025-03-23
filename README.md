@@ -1,6 +1,6 @@
-⚠️ **latest developments on https://github.com/eyereasoner/eye/tree/master/nexus**
-
 # arvol
+
+## Independent development of [eye nexus](https://github.com/eyereasoner/eye/tree/master/nexus) using webized ISO standard prolog
 
 - using webized prolog which basically means that atoms can be IRIs
 - besides top-down reasoning with `conclusion :- premise` rules, it also supports bottom-up reasoning with `conclusion :+ premise` rules
@@ -10,7 +10,7 @@
 - queries are posed as `true :+ premise` and answered as `answer(premise_inst)`
 - inference fuses are defined as `false :+ premise` and blown as `fuse(premise_inst)` with return code 2
 
-## rationale for bottom-up reasoning
+## Rationale for bottom-up reasoning
 
 - conclusion can be a conjunction
 - conclusion can be `false` to blow an inference fuse
@@ -20,11 +20,11 @@
 - performing bottom-up proof steps `step/3`
 - avoiding loops that could occur with top-down reasoning
 
-## testing
+## Testing
 
 - install [trealla](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building) and run `./test`
 
-## background
+## Background
 
 - personal notes by Tim Berners-Lee: [Design Issues](https://www.w3.org/DesignIssues/)
 - book of Markus Triska: [The Power of Prolog](https://www.metalevel.at/prolog)
