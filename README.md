@@ -1,6 +1,6 @@
 # arvol
 
-## Independent development of [eye nexus](https://github.com/eyereasoner/eye/tree/master/nexus) using webized ISO standard prolog
+## Independent development of eye reasoning using webized prolog
 
 - using webized prolog which basically means that atoms can be IRIs
 - besides top-down reasoning with `conclusion :- premise` rules, it also supports bottom-up reasoning with `conclusion :+ premise` rules
