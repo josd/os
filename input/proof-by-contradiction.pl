@@ -4,11 +4,11 @@
 :- op(1200, xfx, :+).
 
 % facts
-'urn:example:Human'('urn:example:Socrates').
+'<urn:example:Human>'('<urn:example:Socrates>').
 
 % all humans are mortal
-'urn:example:Mortal'(X) :+
-    'urn:example:Human'(X).
+'<urn:example:Mortal>'(X) :+
+    '<urn:example:Human>'(X).
 
 % assert the negation of the query
-false :+ 'urn:example:Mortal'(_).
+false :+ '<urn:example:Mortal>'(_).

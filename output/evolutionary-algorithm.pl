@@ -1,7 +1,7 @@
 :- op(1200, xfx, :+).
 
 answer(set_random(seed(100))).
-answer('urn:example:solve'('METHINKS IT IS LIKE A WEASEL')).
+answer('<urn:example:solve>'('METHINKS IT IS LIKE A WEASEL')).
 answer(evolution(1,27,' IUQEPVPMBILDSTPNRHSYXBTYYPQ')).
 answer(evolution(2,26,' IUHEPVPMBILDSTPNRHSYXBTYYPQ')).
 answer(evolution(3,25,' GUHEPVPMBILDSTPNRWSYVBVYYPL')).
@@ -84,7 +84,7 @@ answer(evolution(79,1,'METHINKS IT IS LIKE A WEAS L')).
 answer(evolution(80,0,'METHINKS IT IS LIKE A WEASEL')).
 
 step((true:+set_random(seed(100))),set_random(seed(100)),true).
-step((true:+'urn:example:solve'('METHINKS IT IS LIKE A WEASEL')),'urn:example:solve'('METHINKS IT IS LIKE A WEASEL'),true).
+step((true:+'<urn:example:solve>'('METHINKS IT IS LIKE A WEASEL')),'<urn:example:solve>'('METHINKS IT IS LIKE A WEASEL'),true).
 step((true:+evolution(A,B,C)),evolution(1,27,' IUQEPVPMBILDSTPNRHSYXBTYYPQ'),true).
 step((true:+evolution(A,B,C)),evolution(2,26,' IUHEPVPMBILDSTPNRHSYXBTYYPQ'),true).
 step((true:+evolution(A,B,C)),evolution(3,25,' GUHEPVPMBILDSTPNRWSYVBVYYPL'),true).

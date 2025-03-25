@@ -4,7 +4,7 @@
 
 :- op(1200, xfx, :+).
 
-'urn:example:queens'(N, Qs) :-
+'<urn:example:queens>'(N, Qs) :-
     range(1, N, Us),
     queens(Us, [], Qs).
 
@@ -32,4 +32,4 @@ attack(X, N, [_|Ys]) :-
     attack(X, N1, Ys).
 
 % query
-true :+ 'urn:example:queens'(8, _).
+true :+ '<urn:example:queens>'(8, _).
