@@ -1,6 +1,6 @@
 # arvol
 
-## Running eye reasoning using webized prolog
+## Running eye reasoning cases using webized prolog
 
 - using webized prolog which basically means that atoms can be IRIs
 - besides top-down reasoning with `conclusion :- premise` rules, it also supports bottom-up reasoning with `conclusion :+ premise` rules
