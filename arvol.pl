@@ -19,7 +19,7 @@
 :- dynamic(limit/1).
 :- dynamic(step/3).
 
-version('arvol v1.0.0 (2025-03-23)').
+version('arvol v1.0.1 (2025-03-27)').
 
 % main goal
 main :-
@@ -52,7 +52,7 @@ main :-
     ->  true
     ;   format(user_error, "*** fm=~w~n", [Fm])
     ),
-    count(mf, M),
+    count(mf, Mf),
     (   Mf = 0
     ->  true
     ;   format(user_error, "*** mf=~w~n", [Mf])
