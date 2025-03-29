@@ -1,6 +1,4 @@
-# os
-
-## Open Socrates
+# setarcos
 
 - using webized prolog which basically means that atoms can be IRIs
 - besides top-down reasoning with `conclusion :- premise` rules, it also supports bottom-up reasoning with `conclusion :+ premise` rules
