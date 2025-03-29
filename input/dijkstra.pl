@@ -9,7 +9,7 @@
 :- dynamic(edge/2).
 
 % context
-'<urn:example:dijkstra>'(A, B) :- dijkstra(A, B).
+'urn:example:dijkstra'(A, B) :- dijkstra(A, B).
 
 % edges
 edge([a, b], 4).
@@ -42,4 +42,4 @@ dijkstra([[Cost, Node|Path]|Queue], Goal, Visited, ResultPath, ResultCost) :-
     dijkstra(SortedQueue, Goal, [Node|Visited], ResultPath, ResultCost).
 
 % query
-true :+ '<urn:example:dijkstra>'([a, f], [_, _]).
+true :+ 'urn:example:dijkstra'([a, f], [_, _]).

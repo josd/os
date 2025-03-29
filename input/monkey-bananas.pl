@@ -4,7 +4,7 @@
 :- op(1200, xfx, :+).
 
 % plan: list of moves from initial state to goal state
-'<urn:example:plan>'(L) :-
+'urn:example:plan'(L) :-
     initial_state(I),
     goal_state(G),
     reachable(I, L, G).
@@ -33,6 +33,6 @@ legal_move([B, M, L, n, H], go(X), [B, X, L, n, H]) :-
     X \= M.
 
 % query
-(true :+ '<urn:example:plan>'(L)) :-
+(true :+ 'urn:example:plan'(L)) :-
     between(1, 5, I),
     length(L, I).

@@ -18,7 +18,7 @@ person(sandy).
 person(pat).
 
 % solve puzzle
-'<urn:example:solution>'(Flute) :-
+'urn:example:solution'(Flute) :-
     uniq_people(Doctor, Lawyer, Engineer),
     uniq_people(Piano, Violin, Flute),
     chris \= Doctor,        % Chris is married to the doctor.
@@ -36,4 +36,4 @@ uniq_people(A, B, C) :-
     B \= C.
 
 % query
-true :+ '<urn:example:solution>'(_).
+true :+ 'urn:example:solution'(_).

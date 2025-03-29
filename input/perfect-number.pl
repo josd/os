@@ -4,7 +4,7 @@
 :- op(1200, xfx, :+).
 
 % context
-'<urn:example:perfectNumber>'(N, P) :- perfect(N, P).
+'urn:example:perfectNumber'(N, P) :- perfect(N, P).
 
 %divisible(10, 2).
 divisible(X, Y) :-
@@ -67,4 +67,4 @@ perfect(N, C) :-
     listperf(P, C).
 
 % query
-(true :+ '<urn:example:perfectNumber>'(2025, _)) :- fail; true.
+(true :+ 'urn:example:perfectNumber'(2025, _)) :- fail; true.

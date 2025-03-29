@@ -4,7 +4,7 @@
 :- op(1200, xfx, :+).
 
 % context
-'<urn:example:isReachable>'(Start, Goal) :-
+'urn:example:isReachable'(Start, Goal) :-
     is_reachable(Start, Goal).
 
 % graph representation as directed edges
@@ -30,6 +30,6 @@ is_reachable(Start, Goal) :-
     reachable(Start, Goal, [Start]).
 
 % query
-true :+ '<urn:example:isReachable>'(a, f).
-true :+ \+ '<urn:example:isReachable>'(b, e).
-true :+ '<urn:example:isReachable>'(c, g).
+true :+ 'urn:example:isReachable'(a, f).
+true :+ \+ 'urn:example:isReachable'(b, e).
+true :+ 'urn:example:isReachable'(c, g).

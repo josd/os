@@ -9,7 +9,7 @@
 :- dynamic(policy/3).
 
 % context
-'<urn:example:accessControl>'(User, Resource, Decision) :-
+'urn:example:accessControl'(User, Resource, Decision) :-
     access_control(User, Resource, Decision).
 
 % users and their roles
@@ -51,6 +51,6 @@ access_control(User, Resource, Decision) :-
     resolve_conflict(Policies, Decision).
 
 % query
-true :+ '<urn:example:accessControl>'(john, report1, _).
-true :+ '<urn:example:accessControl>'(jane, report2, _).
-true :+ '<urn:example:accessControl>'(bob, report1, _).
+true :+ 'urn:example:accessControl'(john, report1, _).
+true :+ 'urn:example:accessControl'(jane, report2, _).
+true :+ 'urn:example:accessControl'(bob, report1, _).
