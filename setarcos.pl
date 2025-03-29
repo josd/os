@@ -1,8 +1,8 @@
-% ----------------
-% os -- Jos De Roo
-% ----------------
+% ----------------------
+% setarcos -- Jos De Roo
+% ----------------------
 %
-% See https://github.com/eyereasoner/eye/blob/master/os/README.md
+% See https://github.com/josd/setarcos
 %
 
 :- use_module(library(lists)).
@@ -19,7 +19,7 @@
 :- dynamic(limit/1).
 :- dynamic(step/3).
 
-version('os v1.1.0 (2025-03-29)').
+version('setarcos v1.1.1 (2025-03-29)').
 
 % main goal
 main :-
@@ -40,7 +40,7 @@ main :-
         (Conc :+ Prem),
         dynify((Conc :+ Prem))
     ),
-    catch(os, E,
+    catch(setarcos, E,
         (   E = halt(Exit)
         ->  true
         ;   format(user_error, "*** ~w~n", [E]),
@@ -64,7 +64,7 @@ main :-
     halt(Exit).
 
 %
-% os 
+% setarcos 
 %
 % 1/ select rule Conc :+ Prem
 % 2/ prove Prem and if it fails backtrack to 1/
@@ -78,7 +78,7 @@ main :-
 %    else assert brake and start again at 1/
 %
 
-os :-
+setarcos :-
     (   (Conc :+ Prem),                         % 1/
         copy_term((Conc :+ Prem), Rule),
         Prem,                                   % 2/
@@ -114,7 +114,7 @@ os :-
                 Closure < Limit,
                 NewClosure is Closure+1,
                 becomes(closure(Closure), closure(NewClosure)),
-                os
+                setarcos
             ;   format(":- op(1200, xfx, :+).~n~n", []),
                 forall(
                     answer(P),
@@ -130,7 +130,7 @@ os :-
                 )
             )
         ;   assertz(brake),
-            os
+            setarcos
         )
     ).
 
