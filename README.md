@@ -1,6 +1,8 @@
 # setarcos
 
-- using webized prolog which basically means that atoms can be IRIs
+## Inquiring using webized prolog
+
+- webized prolog basically means that prolog atoms can be IRIs
 - besides top-down reasoning with `conclusion :- premise` rules, it also supports bottom-up reasoning with `conclusion :+ premise` rules
 - variables are interpreted universally except for `conclusion :+ premise` conclusion-only variables which are interpreted existentially
 - bottom-up reasoning can use `stable(n)` to fail if the deductive closure at level `n` is not yet stable
