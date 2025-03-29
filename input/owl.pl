@@ -433,10 +433,10 @@ Z :+
     member(A, C).
 
 % test data
-'http://www.w3.org/2002/07/owl#inverseOf'(p, q).
-p(s, o).
-'http://www.w3.org/2002/07/owl#oneOf'('Size', [large, medium, small]).
+'http://www.w3.org/2002/07/owl#inverseOf'('urn:example:p', 'urn:example:q').
+'urn:example:p'('urn:example:s', 'urn:example:o').
+'http://www.w3.org/2002/07/owl#oneOf'('Size', ['urn:example:large', 'urn:example:medium', 'urn:example:small']).
 
 % query
 true :+ 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type'(_, _).
-true :+ q(_, _).
+true :+ 'urn:example:q'(_, _).

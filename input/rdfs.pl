@@ -51,10 +51,10 @@ Z :+
     'http://www.w3.org/2000/01/rdf-schema#range'(C, B).
 
 % test data
-'http://www.w3.org/2000/01/rdf-schema#domain'(p, 'C').
-'http://www.w3.org/2000/01/rdf-schema#subPropertyOf'(p, q).
-p(s, o).
+'http://www.w3.org/2000/01/rdf-schema#domain'('urn:example:p', 'C').
+'http://www.w3.org/2000/01/rdf-schema#subPropertyOf'('urn:example:p', 'urn:example:q').
+'urn:example:p'('urn:example:s', 'urn:example:o').
 
 % query
 true :+ 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type'(_, _).
-true :+ q(_, _).
+true :+ 'urn:example:q'(_, _).
