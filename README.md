@@ -1,2 +1,2 @@
 > [!NOTE]  
-> Now further developed at https://github.com/eyereasoner/eye/tree/master/reasoning/arcus
+> Further developed at https://github.com/eyereasoner/eye/tree/master/reasoning/arcus
