@@ -1,6 +1,3 @@
-> [!NOTE]  
-> This work is inspiring https://github.com/eyereasoner/eye/tree/master/logarcus
-
 # arcus
 
 ## Reasoning with webized prolog
