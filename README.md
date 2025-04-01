@@ -24,13 +24,20 @@
 - performing bottom-up proof steps `step/3`
 - avoiding loops that could occur with top-down reasoning
 
+## Testing with SWI-Prolog
+
+- install [SWI-Prolog](https://www.swi-prolog.org/download/stable)
+- run `./test-swipl` to get `output-swipl/`.
+
 ## Testing with Trealla Prolog
 
-- install [Trealla Prolog](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building) and run `./test-trealla` to get `output-trealla/`.
+- install [Trealla Prolog](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building)
+- run `./test-trealla` to get `output-trealla/`.
 
 ## Testing with Scryer Prolog
 
-- install [Scryer Prolog](https://github.com/mthom/scryer-prolog?tab=readme-ov-file#installing-scryer-prolog) and run `./test-scryer` to get `output-scryer/`.
+- install [Scryer Prolog](https://github.com/mthom/scryer-prolog?tab=readme-ov-file#installing-scryer-prolog)
+- run `./test-scryer` to get `output-scryer/`.
 
 ## Background
 
