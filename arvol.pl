@@ -64,7 +64,7 @@ main :-
     halt(Exit).
 
 %
-% arvol 
+% arvol
 %
 % 1/ select rule Conc :+ Prem
 % 2/ prove Prem and if it fails backtrack to 1/
