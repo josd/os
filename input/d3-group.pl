@@ -42,7 +42,7 @@ inversion(reflection_b, reflection_b).
 inversion(reflection_c, reflection_c).
 
 % check if a set is a valid group
-'urn:example:validGroup'(Group) :-
+'<urn:example:validGroup>'(Group) :-
     findall(X, symmetry(X), AllElements),
     subgroup(AllElements, Group),
     memberchk(identity, Group),
@@ -68,4 +68,4 @@ subgroup([_|T], Sub) :-
     subgroup(T, Sub).
 
 % query
-true :+ 'urn:example:validGroup'(_).
+true :+ '<urn:example:validGroup>'(_).

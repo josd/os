@@ -28,7 +28,7 @@ path(Start, Finish, Visited, [Start|Path]) :-
     path(X, Finish, [X|Visited], Path).
 
 % hamiltonian
-'urn:example:hamiltonianPath'(P) :-
+'<urn:example:hamiltonianPath>'(P) :-
     findall(V, (edge(V, _); edge(_, V)), Fs),
     sort(Fs, Vs),
     member(S, Vs),
@@ -36,4 +36,4 @@ path(Start, Finish, Visited, [Start|Path]) :-
     sort(P, Vs).
 
 % query
-true :+ 'urn:example:hamiltonianPath'(_).
+true :+ '<urn:example:hamiltonianPath>'(_).

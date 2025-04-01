@@ -5,7 +5,7 @@
 
 ## Reasoning with webized prolog
 
-- webized prolog basically means that prolog atoms can be IRIs
+- webized prolog basically means that prolog atoms can be `<` `>` quoted IRIs
 - besides top-down reasoning with `conclusion :- premise` rules, it also supports bottom-up reasoning with `conclusion :+ premise` rules
 - variables are interpreted universally except for `conclusion :+ premise` conclusion-only variables which are interpreted existentially
 - linear implication is done with `becomes(from_conj, to_conj)`

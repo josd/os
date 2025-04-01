@@ -8,7 +8,7 @@
 
 :- dynamic(evolution/3).
 
-'urn:example:solve'(TargetAtom) :-
+'<urn:example:solve>'(TargetAtom) :-
     atom_codes(TargetAtom, Target),
     length(Target, Len),
     random_text(Len, Start),
@@ -75,4 +75,4 @@ score([_|Tt], [_|Tp], C, Score) :-
 % query
 true :+ set_random(seed(100)).
 true :+ evolution(_, _, _).
-true :+ 'urn:example:solve'('METHINKS IT IS LIKE A WEASEL').
+true :+ '<urn:example:solve>'('METHINKS IT IS LIKE A WEASEL').

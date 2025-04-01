@@ -19,7 +19,7 @@
 :- dynamic(limit/1).
 :- dynamic(step/3).
 
-version('arvol v1.1.3 (2025-04-01)').
+version('arvol v1.2.0 (2025-04-01)').
 
 % main goal
 main :-

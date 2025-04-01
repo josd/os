@@ -9,7 +9,7 @@
 :- op(500, fx, -).      % denial
 
 % context
-'urn:example:propositionProver'(Premise, Conclusion) :- implies(Premise, Conclusion).
+'<urn:example:propositionProver>'(Premise, Conclusion) :- implies(Premise, Conclusion).
 
 implies(Premise, Conclusion) :-
     opposite(Conclusion, Denial),
@@ -76,11 +76,11 @@ refute(fs([F1 & G1|D], C, P, N)) :-
     add_conjunction(F1, G0, Set).
 
 % query
-true :+ 'urn:example:propositionProver'(-a, +to_be # -to_be).
-true :+ 'urn:example:propositionProver'(-a & -a, -a).
-true :+ 'urn:example:propositionProver'(-a, +b # -a).
-true :+ 'urn:example:propositionProver'(-a & -b, -b & -a).
-true :+ 'urn:example:propositionProver'(-a, -b # (+b & -a)).
-true :+ 'urn:example:propositionProver'(-a # (-b # +c), -b # (-a # +c)).
-true :+ 'urn:example:propositionProver'(-a # +b, (+b & -c) # (-a # +c)).
-true :+ 'urn:example:propositionProver'((-a # +c) & (-b # +c), (-a & -b) # +c).
+true :+ '<urn:example:propositionProver>'(-a, +to_be # -to_be).
+true :+ '<urn:example:propositionProver>'(-a & -a, -a).
+true :+ '<urn:example:propositionProver>'(-a, +b # -a).
+true :+ '<urn:example:propositionProver>'(-a & -b, -b & -a).
+true :+ '<urn:example:propositionProver>'(-a, -b # (+b & -a)).
+true :+ '<urn:example:propositionProver>'(-a # (-b # +c), -b # (-a # +c)).
+true :+ '<urn:example:propositionProver>'(-a # +b, (+b & -c) # (-a # +c)).
+true :+ '<urn:example:propositionProver>'((-a # +c) & (-b # +c), (-a & -b) # +c).

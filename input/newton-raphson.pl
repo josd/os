@@ -12,16 +12,16 @@ fd(2, X, Y) :- Y is 1/X.
 fd(3, X, Y) :- Y is cos(X).
 
 % Newton-Raphson iteration
-'urn:example:findRoot'([N, X, Tolerance], Root) :-
+'<urn:example:findRoot>'([N, X, Tolerance], Root) :-
     f(N, X, FX),
     fd(N, X, FDX),
     (   abs(FX) < Tolerance
     ->  Root = X
     ;   NewX is X - FX/FDX,
-        'urn:example:findRoot'([N, NewX, Tolerance], Root)
+        '<urn:example:findRoot>'([N, NewX, Tolerance], Root)
     ).
 
 % query
-true :+ 'urn:example:findRoot'([1, 1.0, 1.0e-15], _).
-true :+ 'urn:example:findRoot'([2, 2.0, 1.0e-15], _).
-true :+ 'urn:example:findRoot'([3, 3.0, 1.0e-15], _).
+true :+ '<urn:example:findRoot>'([1, 1.0, 1.0e-15], _).
+true :+ '<urn:example:findRoot>'([2, 2.0, 1.0e-15], _).
+true :+ '<urn:example:findRoot>'([3, 3.0, 1.0e-15], _).

@@ -1,7 +1,7 @@
 :- op(1200, xfx, :+).
 
 answer(set_random(seed(100))).
-answer('urn:example:solve'('METHINKS IT IS LIKE A WEASEL')).
+answer('<urn:example:solve>'('METHINKS IT IS LIKE A WEASEL')).
 answer(evolution(1, 27, 'KHMFAFFWBNXLDAJEGMEQVVDJYCMN')).
 answer(evolution(2, 26, 'KEMFAFFWBNXLDAJEGMEQVVDJYCMN')).
 answer(evolution(3, 25, 'KEMFANFWBNXLDAJEGMEQVVDJYCMN')).
@@ -102,7 +102,7 @@ answer(evolution(97, 1, 'METHINKS ITAIS LIKE A WEASEL')).
 answer(evolution(98, 0, 'METHINKS IT IS LIKE A WEASEL')).
 
 step((true:+set_random(seed(100))), set_random(seed(100)), true).
-step((true:+'urn:example:solve'('METHINKS IT IS LIKE A WEASEL')), 'urn:example:solve'('METHINKS IT IS LIKE A WEASEL'), true).
+step((true:+'<urn:example:solve>'('METHINKS IT IS LIKE A WEASEL')), '<urn:example:solve>'('METHINKS IT IS LIKE A WEASEL'), true).
 step((true:+evolution(_, _, _)), evolution(1, 27, 'KHMFAFFWBNXLDAJEGMEQVVDJYCMN'), true).
 step((true:+evolution(_, _, _)), evolution(2, 26, 'KEMFAFFWBNXLDAJEGMEQVVDJYCMN'), true).
 step((true:+evolution(_, _, _)), evolution(3, 25, 'KEMFANFWBNXLDAJEGMEQVVDJYCMN'), true).
