@@ -7,7 +7,7 @@ if [ $# -lt 2 ] ; then
 fi
 
 # change working directory
-pushd ~/github.com/eyereasoner/eye/reasoning/arcus > /dev/null
+pushd ~/github.com/eyereasoner/arvol > /dev/null
 
 # the following is adapted from https://gist.github.com/codezninja/c227d9c65b09d2be2d99abbfcfa8774a
 while getopts "Mmp" Option
@@ -55,11 +55,11 @@ echo "${a[0]}.${a[1]}.${a[2]}" > VERSION
 export RELEASE="v$(cat VERSION)"
 export DATE="$(date -Idate)"
 
-# update version in arcus.pl
-cat arcus.pl | sed -e "s/'arcus.*'/'arcus $RELEASE \($DATE\)'/" > arcus.pl.tmp
-mv arcus.pl.tmp arcus.pl
+# update version in arvol.pl
+cat arvol.pl | sed -e "s/'arvol.*'/'arvol $RELEASE \($DATE\)'/" > arvol.pl.tmp
+mv arvol.pl.tmp arvol.pl
 
-# run the arcus tests
+# run the arvol tests
 ./test-swipl
 echo ""
 ./test-trealla

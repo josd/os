@@ -1,8 +1,8 @@
 % -------------------
-% arcus -- Jos De Roo
+% arvol -- Jos De Roo
 % -------------------
 %
-% See https://github.com/eyereasoner/eye/tree/master/reasoning/arcus
+% See https://github.com/eyereasoner/arvol
 %
 
 :- use_module(library(lists)).
@@ -19,7 +19,7 @@
 :- dynamic(limit/1).
 :- dynamic(step/3).
 
-version('arcus v1.1.2 (2025-03-30)').
+version('arvol v1.1.3 (2025-04-01)').
 
 % main goal
 main :-
@@ -40,7 +40,7 @@ main :-
         (Conc :+ Prem),
         dynify((Conc :+ Prem))
     ),
-    catch(arcus, E,
+    catch(arvol, E,
         (   E = halt(Exit)
         ->  true
         ;   format(user_error, "*** ~w~n", [E]),
@@ -64,7 +64,7 @@ main :-
     halt(Exit).
 
 %
-% arcus 
+% arvol 
 %
 % 1/ select rule Conc :+ Prem
 % 2/ prove Prem and if it fails backtrack to 1/
@@ -78,7 +78,7 @@ main :-
 %    else assert brake and start again at 1/
 %
 
-arcus :-
+arvol :-
     (   (Conc :+ Prem),                         % 1/
         copy_term((Conc :+ Prem), Rule),
         Prem,                                   % 2/
@@ -114,7 +114,7 @@ arcus :-
                 Closure < Limit,
                 NewClosure is Closure+1,
                 becomes(closure(Closure), closure(NewClosure)),
-                arcus
+                arvol
             ;   format(":- op(1200, xfx, :+).~n~n", []),
                 forall(
                     answer(P),
@@ -130,7 +130,7 @@ arcus :-
                 )
             )
         ;   assertz(brake),
-            arcus
+            arvol
         )
     ).
 
