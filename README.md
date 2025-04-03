@@ -1,6 +1,3 @@
-> [!NOTE]
-> This work is continued in https://github.com/eyereasoner/eye/tree/master/logos
-
 # arvol
 
 ## Reasoning with webized prolog
