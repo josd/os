@@ -24,17 +24,17 @@
 ## Testing with SWI-Prolog
 
 - install [SWI-Prolog](https://www.swi-prolog.org/download/stable)
-- run `./test-swipl` to get `output-swipl/`.
+- run [./test-swipl](./test-swipl) to get [./output-swipl/](./output-swipl/).
 
 ## Testing with Trealla Prolog
 
 - install [Trealla Prolog](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building)
-- run `./test-trealla` to get `output-trealla/`.
+- run [./test-trealla](./test-trealla) to get [./output-trealla/](./output-trealla/).
 
 ## Testing with Scryer Prolog
 
 - install [Scryer Prolog](https://github.com/mthom/scryer-prolog?tab=readme-ov-file#installing-scryer-prolog)
-- run `./test-scryer` to get `output-scryer/`.
+- run [./test-scryer](./test-scryer) to get [./output-scryer/](./output-scryer/).
 
 ## Background
 
