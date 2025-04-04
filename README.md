@@ -24,17 +24,17 @@
 ## Testing with SWI-Prolog
 
 - install [SWI-Prolog](https://www.swi-prolog.org/download/stable)
-- run [./test-swipl](./test-swipl) to go from [./input-swipl/](./input-swipl/) to [./output-swipl/](./output-swipl/)
+- run [./test-swipl](./test-swipl) to go from [./input/](./input/) to [./output-swipl/](./output-swipl/)
 
 ## Testing with Trealla Prolog
 
 - install [Trealla Prolog](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building)
-- run [./test-trealla](./test-trealla) to go from [./input-trealla/](./input-trealla/) to [./output-trealla/](./output-trealla/)
+- run [./test-trealla](./test-trealla) to go from [./input/](./input/) to [./output-trealla/](./output-trealla/)
 
 ## Testing with Scryer Prolog
 
 - install [Scryer Prolog](https://github.com/mthom/scryer-prolog?tab=readme-ov-file#installing-scryer-prolog)
-- run [./test-scryer](./test-scryer) to go from [./input-scryer/](./input-scryer/) to [./output-scryer/](./output-scryer/)
+- run [./test-scryer](./test-scryer) to go from [./input/](./input/) to [./output-scryer/](./output-scryer/)
 
 ## Background
 
