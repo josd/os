@@ -1,4 +1,4 @@
-# arvol
+# eyeneo
 
 ## Reasoning with webized prolog
 
