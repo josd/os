@@ -10,7 +10,7 @@
 :- dynamic(user_permission/3).
 
 % context
-'<urn:example:userPermission>'(User, Permission, Patient) :-
+'urn:example:userPermission'(User, Permission, Patient) :-
     user_permission(User, Permission, Patient).
 
 % users
@@ -89,10 +89,10 @@ user_permission(U, P, X) :+
     assigned_patient(U, X).
 
 % query
-true :+ '<urn:example:userPermission>'(alice, _, patient1).
-true :+ '<urn:example:userPermission>'(bob, view_patient_records, patient2).
-true :+ '<urn:example:userPermission>'([alice, 7], edit_patient_records, patient1).
-true :+ \+'<urn:example:userPermission>'([alice, 7], edit_patient_records, patient1).
-true :+ '<urn:example:userPermission>'(_, view_patient_records, patient3).
-true :+ '<urn:example:userPermission>'(dave, view_patient_records, patient1).
-true :+ \+'<urn:example:userPermission>'(dave, view_patient_records, patient1).
+true :+ 'urn:example:userPermission'(alice, _, patient1).
+true :+ 'urn:example:userPermission'(bob, view_patient_records, patient2).
+true :+ 'urn:example:userPermission'([alice, 7], edit_patient_records, patient1).
+true :+ \+'urn:example:userPermission'([alice, 7], edit_patient_records, patient1).
+true :+ 'urn:example:userPermission'(_, view_patient_records, patient3).
+true :+ 'urn:example:userPermission'(dave, view_patient_records, patient1).
+true :+ \+'urn:example:userPermission'(dave, view_patient_records, patient1).

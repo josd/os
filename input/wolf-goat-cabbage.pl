@@ -6,11 +6,11 @@
 
 % a solution is a starting configuration and a list of moves that takes you to
 % [e, e, e, e], where all the intermediate configurations are safe
-'<urn:example:solution>'([e, e, e, e], []).
-'<urn:example:solution>'(Config, [Move|Rest]) :-
+'urn:example:solution'([e, e, e, e], []).
+'urn:example:solution'(Config, [Move|Rest]) :-
     move(Config, Move, NextConfig),
     safe(NextConfig),
-    '<urn:example:solution>'(NextConfig, Rest).
+    'urn:example:solution'(NextConfig, Rest).
 
 % each move transforms one configuration to another
 % a configuration is list showing which bank man, wolf, goat, cabbage are on
@@ -36,6 +36,6 @@ oneEq(X, X, _).
 oneEq(X, _, X).
 
 % query
-(true :+ '<urn:example:solution>'([w, w, w, w], L)) :-
+(true :+ 'urn:example:solution'([w, w, w, w], L)) :-
     between(1, 10, I),
     length(L, I).

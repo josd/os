@@ -3,14 +3,14 @@
 :- op(1200, xfx, :+).
 
 % user's personal details
-'<urn:example:userDetails>'(user_1, first_name, 'Patrick').
-'<urn:example:userDetails>'(user_1, place, 'Brugge').
-'<urn:example:userDetails>'(user_1, birth_year, 1971).
+'urn:example:userDetails'(user_1, first_name, 'Patrick').
+'urn:example:userDetails'(user_1, place, 'Brugge').
+'urn:example:userDetails'(user_1, birth_year, 1971).
 
 % determine whether a given combination is allowed
-'<urn:example:display>'(User, perm(Perm), not(Not)) :-
-    '<urn:example:userDetails>'(User, _, _),
-    findall(Det, '<urn:example:userDetails>'(User, _, Det), All),
+'urn:example:display'(User, perm(Perm), not(Not)) :-
+    'urn:example:userDetails'(User, _, _),
+    findall(Det, 'urn:example:userDetails'(User, _, Det), All),
     (   combination(1, All, Perm)
     ;   combination(2, All, Perm)
     ),
@@ -35,4 +35,4 @@ diff([A|Bs], Cs, Ds) :-
     ).
 
 % query
-true :+ '<urn:example:display>'(_, _, _).
+true :+ 'urn:example:display'(_, _, _).

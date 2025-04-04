@@ -2,7 +2,7 @@
 
 :- op(1200, xfx, :+).
 
-'<urn:example:test>'(V) :-
+'urn:example:test'(V) :-
     Item = {
         author:'Philip K Dick',
         works:[
@@ -17,4 +17,4 @@
     Author = author:V.
 
 % query
-true :+ '<urn:example:test>'(_).
+true :+ 'urn:example:test'(_).

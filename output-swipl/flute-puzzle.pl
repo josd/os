@@ -1,5 +1,5 @@
 :- op(1200, xfx, :+).
 
-answer('<urn:example:solution>'(sandy)).
+answer('urn:example:solution'(sandy)).
 
-step((true:+'<urn:example:solution>'(_)), '<urn:example:solution>'(sandy), true).
+step((true:+'urn:example:solution'(_)), 'urn:example:solution'(sandy), true).

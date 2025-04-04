@@ -1,5 +1,5 @@
 :- op(1200, xfx, :+).
 
-answer('<urn:example:mustHave>'('<urn:example:alice>', '<urn:example:dogLicense>')).
+answer('urn:example:mustHave'('urn:example:alice', 'urn:example:dogLicense')).
 
-step((true:+'<urn:example:mustHave>'(_, _)), '<urn:example:mustHave>'('<urn:example:alice>', '<urn:example:dogLicense>'), true).
+step((true:+'urn:example:mustHave'(_, _)), 'urn:example:mustHave'('urn:example:alice', 'urn:example:dogLicense'), true).
