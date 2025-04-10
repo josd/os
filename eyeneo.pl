@@ -5,6 +5,9 @@
 % See https://github.com/eyereasoner/eyeneo
 %
 
+:- use_module(library(between)).
+:- use_module(library(format)).
+:- use_module(library(iso_ext)).
 :- use_module(library(lists)).
 :- use_module(library(terms)).
 
@@ -19,13 +22,10 @@
 :- dynamic(limit/1).
 :- dynamic(step/3).
 
-version('eyeneo v1.3.0 (2025-04-04)').
+version('eyeneo v1.3.1 (2025-04-10)').
 
 % main goal
 main :-
-    catch(use_module(library(iso_ext)), _, true),
-    catch(use_module(library(format)), _, true),
-    catch(use_module(library(between)), _, true),
     assertz(closure(0)),
     assertz(limit(-1)),
     assertz(count(fm, 0)),

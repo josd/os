@@ -60,8 +60,6 @@ cat eyeneo.pl | sed -e "s/'eyeneo.*'/'eyeneo $RELEASE \($DATE\)'/" > eyeneo.pl.t
 mv eyeneo.pl.tmp eyeneo.pl
 
 # run the eyeneo tests
-./test-swipl
-echo ""
 ./test-trealla
 echo ""
 ./test-scryer

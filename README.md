@@ -21,11 +21,6 @@
 - performing bottom-up proof steps `step/3`
 - avoiding loops that could occur with top-down reasoning
 
-## Testing with SWI-Prolog
-
-- install [SWI-Prolog](https://www.swi-prolog.org/download/stable)
-- run [./test-swipl](./test-swipl) to go from [./input/](./input/) to [./output-swipl/](./output-swipl/)
-
 ## Testing with Trealla Prolog
 
 - install [Trealla Prolog](https://github.com/trealla-prolog/trealla?tab=readme-ov-file#building)
